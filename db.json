@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "T-shirt",
+      "price": 499,
+      "category": "clothing",
+      "image": "https://plus.unsplash.com/premium_photo-1718913936342-eaafff98834b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1172"
+    },
+    {
+      "id": 2,
+      "title": "Jeans",
+      "price": 999,
+      "category": "clothing",
+      "image": "https://media.istockphoto.com/id/2213736103/photo/blue-trendy-wide-leg-jeans-crumpled-isolated-on-white-denim-trousers-cutout-single-object.jpg?s=612x612&w=is&k=20&c=5gAHEKFMO58ghL8jzbxE0ZMSNEai-cY8BcFgcqaLsmM="
+    },
+    {
+      "id": 3,
+      "title": "Shoes",
+      "price": 1499,
+      "category": "shoes",
+      "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764"
+    },
+        {
+      "id": 4,
+      "title": "Headphones",
+      "price": 1999,
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+    }
+
+  ],
+  "users": [],
+  "orders": []
+}
+
