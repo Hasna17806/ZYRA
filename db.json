@@ -5,14 +5,14 @@
       "title": "T-shirt",
       "price": 499,
       "category": "clothing",
-      "image": "https://plus.unsplash.com/premium_photo-1718913936342-eaafff98834b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1172"
+      "image": "https://image.hm.com/assets/hm/bf/e3/bfe3256538355d25fd8a247e1541be3329262606.jpg?imwidth=1260"
     },
     {
       "id": "2",
       "title": "Jeans",
       "price": 999,
       "category": "clothing",
-      "image": "https://media.istockphoto.com/id/2213736103/photo/blue-trendy-wide-leg-jeans-crumpled-isolated-on-white-denim-trousers-cutout-single-object.jpg?s=612x612&w=is&k=20&c=5gAHEKFMO58ghL8jzbxE0ZMSNEai-cY8BcFgcqaLsmM="
+      "image": "https://image.hm.com/assets/hm/39/f5/39f50424ff1a64c55510f22f1426d3a3b684c93f.jpg?imwidth=2160"
     },
     {
       "id": "3",
@@ -54,6 +54,13 @@
       "name": "Sulthana",
       "email": "sulthana@gmail.com",
       "password": "sult@na",
+      "role": "user"
+    },
+    {
+      "id": "89f1",
+      "name": "Hasna",
+      "email": "hasna@gmail.com",
+      "password": "h@sna",
       "role": "user"
     }
   ]

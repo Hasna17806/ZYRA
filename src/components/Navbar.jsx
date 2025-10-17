@@ -18,12 +18,12 @@ export default function Navbar() {
               onClick={() => navigate("/products")}
               className="text-xl font-bold cursor-pointer"
             >
-                     🛍️ MyShop
+                     🛍️ Zyra
             </h1>
              
              {user ? (
                 <div className="flex items-center gap-4">
-                    <span className="text-sm">Hi, {user.name}</span>
+                    <span className="text-lg">Hi, {user.name}</span>
                     <button onClick={handleLogout}
                     className="bg-white text-green-600 px-3 py-1 rounded hover:bg-gray-100"
                     >
