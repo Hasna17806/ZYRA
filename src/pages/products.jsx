@@ -4,7 +4,7 @@ import { fetchProducts, setSearch, setCategory, setSort } from "../redux/product
 
 export default function Products() {
   const dispatch = useDispatch();
-  const { filtered, isLoading, search, category, sort } = useSelector(
+  const { filtered, isLoading, search, category, sort, error } = useSelector(
     (state) => state.products
   );
 
@@ -12,7 +12,15 @@ export default function Products() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (isLoading) return <p className="text-center mt-10">Loading products...</p>;
+  if (isLoading) return <p className="text-center mt-10 text-blue-600">Loading products...</p>;
+
+  if (error)
+    return (
+      <p className="text-center mt-10 text-red-500">
+         Failed to load products: {error}
+
+      </p>
+    );
 
   return (
     <div className="p-6">
@@ -51,33 +59,35 @@ export default function Products() {
       </div>
 
       {/* Product List */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {filtered.length === 0 && (
+          <p className="text-center col-span-full text-gray-500">
+            No products found 
+          </p>
+        )}
+
         {filtered.map((p) => (
           <div
             key={p.id}
             className="border rounded-lg shadow p-4 hover:shadow-lg transition bg-white"
           >
-          {p.image ? (
-            
-            <img
-              src={p.image}
-              alt={p.title}
-              className="w-full h-40 object-cover mb-3 rounded"
-            />
-          ) : (
-           <div className="w-full h-40 bg-gray-200 flex items-center justify-center rounded text-gray-500 text-sm">
-            No Image Available 
-            </div>
-          )}
-          <h2 className="font-semibold">{p.title}</h2>
-          <p className="text-gray-600 text-sm">{p.category}</p>
-          <p className="font-bold text-blue-600 mt-1">₹{p.price}</p>
+            {p.image ? (
+              <img
+                src={p.image}
+                alt={p.title}
+                className="w-full h-40 object-cover mb-3 rounded"
+              />
+            ) : (
+              <div className="w-full h-40 bg-gray-200 flex items-center justify-center rounded text-gray-500 text-sm">
+                No Image Available
+              </div>
+            )}
+            <h2 className="font-semibold">{p.title}</h2>
+            <p className="text-gray-600 text-sm">{p.category}</p>
+            <p className="font-bold text-blue-600 mt-1">₹{p.price}</p>
           </div>
         ))}
       </div>
     </div>
   );
 }
-
-
-
