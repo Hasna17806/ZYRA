@@ -3,28 +3,28 @@
     {
       "id": "1",
       "title": "T-shirt",
-      "price": 499,
+      "price": 2499,
       "category": "clothing",
       "image": "https://image.hm.com/assets/hm/bf/e3/bfe3256538355d25fd8a247e1541be3329262606.jpg?imwidth=1260"
     },
     {
       "id": "2",
       "title": "Jeans",
-      "price": 999,
+      "price": 3999,
       "category": "clothing",
       "image": "https://image.hm.com/assets/hm/39/f5/39f50424ff1a64c55510f22f1426d3a3b684c93f.jpg?imwidth=2160"
     },
     {
       "id": "3",
       "title": "Shoes",
-      "price": 1499,
+      "price": 4499,
       "category": "shoes",
       "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764"
     },
     {
       "id": "4",
       "title": "Headphones",
-      "price": 1999,
+      "price": 5999,
       "category": "electronics",
       "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
     }
@@ -61,6 +61,13 @@
       "name": "Hasna",
       "email": "hasna@gmail.com",
       "password": "h@sna",
+      "role": "user"
+    },
+    {
+      "id": "14e1",
+      "name": "Udaifa",
+      "email": "udaifa@gmail.com",
+      "password": "udaifa",
       "role": "user"
     }
   ]

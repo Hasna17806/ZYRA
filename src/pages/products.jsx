@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, setSearch, setCategory, setSort } from "../redux/productSlice";
+import ProductCard from "../components/ProductCard";
 
 export default function Products() {
   const dispatch = useDispatch();

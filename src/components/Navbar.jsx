@@ -13,41 +13,48 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="flex justify-between items-center px-6 py-3 bg-green-600 text-white">
+        <nav className="flex justify-between items-center px-6 py-4 bg-white shadow-md">
             <h1
               onClick={() => navigate("/products")}
-              className="text-xl font-bold cursor-pointer"
+              className="text-2xl font-extrabold text-green-700 cursor-pointer hover:text-green-600 transition mr-25"
             >
-                     🛍️ Zyra
+                      Zyra
             </h1>
              
+             <div className="flex items-center gap-4">
              {user ? (
-                <div className="flex items-center gap-4">
-                    <span className="text-lg">Hi, {user.name}</span>
+                <>
+                <div className=" flex items-center gap-4 text-gray-700 text-sm sm:text-base font-medium">
+                    <span className="text-lg">Hi, <span className="font-semibold text-green-700">{user.name}</span>
+                    </span>
+
                     <button onClick={handleLogout}
-                    className="bg-white text-green-600 px-3 py-1 rounded hover:bg-gray-100"
+                    className="bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700 transition"
                     >
                     Logout
                     </button>
-
-                </div>
+                    </div>
+                 </>
+                
 
              ) : (
-                <div className="flex gap-3">
+                <>
                     <button
                     onClick={() => navigate("/login")}
-                    className="bg-white text-white-600 px-1 py-1 rounded hover:bg-gray-100 ml-10"
+                    className="bg-green-600 text-white px-3 py-1.5 rounded-lg  hover:bg-green-700 transition"
                     >
                      Login
                     </button>
+
                     <button
                       onClick={() => navigate("/register")}
-                    className="border border-white px-1 py-1 rounded hover:bg-green-700"
+                    className="bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700 transition"
                     >
                     Register
                     </button>
-                </div>
+                    </>
              )}
+             </div>
         </nav>
     );
 }

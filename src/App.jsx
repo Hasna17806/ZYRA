@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
+import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
 
 export default function App() {
   return (
@@ -14,6 +16,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
+
         {/* Protected Page */}
         <Route
           path="/products"
@@ -23,6 +26,19 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+       <Route path="/products/:id" element={
+        <ProtectedRoute>
+        <ProductDetails />
+        </ProtectedRoute>
+        }
+         />
+
+     <Route path="/cart" element={
+      <ProtectedRoute>
+        <Cart />
+      </ProtectedRoute>
+     }
+      />
       </Routes>
     </BrowserRouter>
   );
