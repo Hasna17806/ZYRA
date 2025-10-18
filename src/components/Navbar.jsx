@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../redux/authSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     const { user } = useSelector((state) => state.auth);
@@ -18,8 +18,14 @@ export default function Navbar() {
               onClick={() => navigate("/products")}
               className="text-2xl font-extrabold text-green-700 cursor-pointer hover:text-green-600 transition mr-25"
             >
-                      Zyra
-            </h1>
+                    Zyra
+                    
+                  </h1>
+            {/* <Link to="/products" className="text-2xl font-extrabold text-green-700 cursor-pointer hover:text-green-600 transition mr-25">
+                 Zyra
+            </Link> */}
+                     
+          
              
              <div className="flex items-center gap-4">
              {user ? (
