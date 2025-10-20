@@ -1,33 +1,28 @@
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, setSearch, setCategory, setSort } from "../redux/productSlice";
-import ProductCard from "../components/ProductCard";
+import { useNavigate } from "react-router-dom";
 
 export default function Products() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { filtered, isLoading, search, category, sort, error } = useSelector(
     (state) => state.products
   );
 
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   if (isLoading) return <p className="text-center mt-10 text-blue-600">Loading products...</p>;
-
-  if (error)
-    return (
-      <p className="text-center mt-10 text-red-500">
-         Failed to load products: {error}
-
-      </p>
-    );
+  if (error) return <p className="text-center mt-10 text-red-500">Failed to load products: {error}</p>;
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-center">🛍 Products</h1>
+      <h2 className="text-5xl font-bold mb-4 text-center">🛍 Products</h2>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-2 justify-center mb-6">
         <input
           type="text"
@@ -46,6 +41,7 @@ export default function Products() {
           <option value="clothing">Clothing</option>
           <option value="electronics">Electronics</option>
           <option value="shoes">Shoes</option>
+          <option value="accessories">Accessories</option>
         </select>
 
         <select
@@ -59,25 +55,19 @@ export default function Products() {
         </select>
       </div>
 
-      {/* Product List */}
-     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {filtered.length === 0 && (
-          <p className="text-center col-span-full text-gray-500">
-            No products found 
-          </p>
+          <p className="text-center col-span-full text-gray-500">No products found</p>
         )}
 
         {filtered.map((p) => (
           <div
             key={p.id}
-            className="border rounded-lg shadow p-4 hover:shadow-lg transition bg-white"
+            className="border rounded-lg shadow p-4 hover:shadow-lg transition bg-white cursor-pointer"
+            onClick={() => navigate(`/products/${p.id}`)}
           >
             {p.image ? (
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-40 object-cover mb-3 rounded"
-              />
+              <img src={p.image} alt={p.title} className="w-full object-cover mb-3 rounded" />
             ) : (
               <div className="w-full h-40 bg-gray-200 flex items-center justify-center rounded text-gray-500 text-sm">
                 No Image Available
@@ -92,3 +82,209 @@ export default function Products() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------
+
+
+// import { useEffect } from "react";
+// // import { useDispatch, useSelector } from "react-redux";
+// // import { fetchProducts, setSearch, setCategory, setSort } from "../redux/productSlice";
+// // import { Link, useNavigate } from "react-router-dom";
+
+// // export default function Products() {
+// //   const dispatch = useDispatch();
+// //   const navigate = useNavigate();
+// //   const { filtered, isLoading, search, category, sort, error } = useSelector(
+// //     (state) => state.products
+// //   );
+
+// //   useEffect(() => {
+// //     dispatch(fetchProducts());
+// //   }, [dispatch]);
+
+// //   if (isLoading) return <p className="text-center mt-10 text-blue-600">Loading products...</p>;
+
+// //   if (error)
+// //     return (
+// //       <p className="text-center mt-10 text-red-500">
+// //          Failed to load products: {error}
+
+// //       </p>
+// //     );
+
+// //   return (
+// //     <div className="p-6">
+// //       <h2 className="text-5xl font-bold mb-4 text-center">🛍 Products</h2>
+
+// //       {/* Filters */}
+// //       <div className="flex flex-wrap gap-2 justify-center mb-6">
+// //         <input
+// //           type="text"
+// //           placeholder="Search products..."
+// //           value={search}
+// //           onChange={(e) => dispatch(setSearch(e.target.value))}
+// //           className="border p-2 rounded w-60"
+// //         />
+
+// //         <select
+// //           value={category}
+// //           onChange={(e) => dispatch(setCategory(e.target.value))}
+// //           className="border p-2 rounded"
+// //         >
+// //           <option value="all">All Categories</option>
+// //           <option value="clothing">Clothing</option>
+// //           <option value="electronics">Electronics</option>
+// //           <option value="shoes">Shoes</option>
+// //           <option value="accessories">Accessories</option>
+// //         </select>
+
+// //         <select
+// //           value={sort}
+// //           onChange={(e) => dispatch(setSort(e.target.value))}
+// //           className="border p-2 rounded"
+// //         >
+// //           <option value="none">Sort By</option>
+// //           <option value="low-high">Price: Low to High</option>
+// //           <option value="high-low">Price: High to Low</option>
+// //         </select>
+// //       </div>
+
+// //       {/* Product List */}
+// //      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+// //         {filtered.length === 0 && (
+// //           <p className="text-center col-span-full text-gray-500">
+// //             No products found 
+// //           </p>
+// //         )}
+
+// //         {filtered.map((p) => (
+// //           <div
+// //             key={p.id}
+// //             className="border rounded-lg shadow p-4 hover:shadow-lg transition bg-white"
+// //             onClick={navigate(`/products/${p.id}`)}
+// //           >
+
+// //             {p.image ? (
+// //               <img
+// //                 src={p.image}
+// //                 alt={p.title}
+// //                 className="w-full  object-cover mb-3 rounded"
+// //               />
+// //             ) : (
+// //               <div className="w-full h-40 bg-gray-200 flex items-center justify-center rounded text-gray-500 text-sm">
+// //                 No Image Available
+// //               </div>
+// //             )}
+// //             <h3 className="font-semibold">{p.title}</h3>
+// //             <p className="text-gray-600 text-sm">{p.category}</p>
+// //             <p className="font-bold text-blue-600 mt-1">₹{p.price}</p>
+// //           </div>
+// //         ))}
+// //       </div>
+// //     </div>
+// //   );
+// // }
+
+
+// import { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchProducts, setSearch, setCategory, setSort } from "../redux/productSlice";
+// import ProductCard from "../components/ProductCard";
+
+// export default function Products() {
+//   const dispatch = useDispatch();
+//   const { filtered, isLoading, search, category, sort, error } = useSelector(
+//     (state) => state.products
+//   );
+
+//   useEffect(() => {
+//     dispatch(fetchProducts());
+//   }, [dispatch]);
+
+//   if (isLoading) return <p className="text-center mt-10 text-blue-600">Loading products...</p>;
+
+//   if (error)
+//     return (
+//       <p className="text-center mt-10 text-red-500">
+//          Failed to load products: {error}
+
+//       </p>
+//     );
+
+//   return (
+//     <div className="p-6">
+//       <h1 className="text-2xl font-bold mb-4 text-center">🛍 Products</h1>
+
+//       {/* Filters */}
+//       <div className="flex flex-wrap gap-2 justify-center mb-6">
+//         <input
+//           type="text"
+//           placeholder="Search products..."
+//           value={search}
+//           onChange={(e) => dispatch(setSearch(e.target.value))}
+//           className="border p-2 rounded w-60"
+//         />
+
+//         <select
+//           value={category}
+//           onChange={(e) => dispatch(setCategory(e.target.value))}
+//           className="border p-2 rounded"
+//         >
+//           <option value="all">All Categories</option>
+//           <option value="clothing">Clothing</option>
+//           <option value="electronics">Electronics</option>
+//           <option value="shoes">Shoes</option>
+//         </select>
+
+//         <select
+//           value={sort}
+//           onChange={(e) => dispatch(setSort(e.target.value))}
+//           className="border p-2 rounded"
+//         >
+//           <option value="none">Sort By</option>
+//           <option value="low-high">Price: Low to High</option>
+//           <option value="high-low">Price: High to Low</option>
+//         </select>
+//       </div>
+
+//       {/* Product List */}
+//      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+//         {filtered.length === 0 && (
+//           <p className="text-center col-span-full text-gray-500">
+//             No products found 
+//           </p>
+//         )}
+
+//         {filtered.map((p) => (
+//           <div
+//             key={p.id}
+//             className="border rounded-lg shadow p-4 hover:shadow-lg transition bg-white"
+//           >
+//             {p.image ? (
+//               <img
+//                 src={p.image}
+//                 alt={p.title}
+//                 className="w-full h-40 object-cover mb-3 rounded"
+//               />
+//             ) : (
+//               <div className="w-full h-40 bg-gray-200 flex items-center justify-center rounded text-gray-500 text-sm">
+//                 No Image Available
+//               </div>
+//             )}
+//             <h2 className="font-semibold">{p.title}</h2>
+//             <p className="text-gray-600 text-sm">{p.category}</p>
+//             <p className="font-bold text-blue-600 mt-1">₹{p.price}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }

@@ -85,6 +85,3 @@ const productSlice = createSlice({
 
 export const { setSearch, setCategory, setSort } = productSlice.actions;
 export default productSlice.reducer;
-
-
-
