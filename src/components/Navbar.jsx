@@ -1,75 +1,93 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../redux/authSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { clearCart } from "../redux/cartSlice";
+import { ShoppingCart } from "lucide-react";
+
 
 export default function Navbar() {
     const { user } = useSelector((state) => state.auth);
+    const { items } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLogout = () =>{
         dispatch(logoutUser());
-        navigate("/");
+        dispatch(clearCart());
+        navigate("/login");
     };
 
+    const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
+
     return (
-        <nav className="flex justify-between items-center px-6 py-4 bg-gray shadow-md">
-            <h1
-              onClick={() => navigate("/products")}
-              className="text-7xl font-extrabold text-stone-700 cursor-pointer hover:text-stone-600 transition mr-25 ml-5"
-            >
-                    Zyra
+        <nav className="fixed top-0 left-0 w-full bg-white shadow-sm border-b border-gray-200 z-50">
+          <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+         
+            <Link to="/"
+             className="text-3xl tracking-wideset font-extrabold text-gray-900 hover:opacity-70 transition">
+                 ZYRA௹
+            </Link>
                     
-                  </h1>
-            {/* <Link to="/products" className="text-2xl font-extrabold text-green-700 cursor-pointer hover:text-green-600 transition mr-25">
-                 Zyra
-            </Link> */}
-                     
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/products" className="hover:underline">Products</Link>
-             
-             <div className="flex items-center gap-4">
+          {/* Navigation Links */}
+
+         <div className="flex items-center gap-8 text-gray-700 font-medium">
+          <Link to="/" className="hover:text-black transition-colors duration-200">Home</Link>
+          <Link to="/products" className="hover:text-black transition-colors duration-200">Shop</Link>
+
+
+                  </div>
+
+                  {/* Auth Section */}
+                <div className="flex items-center gap-4">
              {user ? (
                 <>
-                <div className=" flex items-center gap-4 text-gray-700 text-sm sm:text-base font-medium">
-                    <span className="text-lg">Hi, <span className="font-semibold text-Zinc-950">{user.name}</span>
+    
+                    <span className="text-gray-700 text-sm">Hi, <span className="font-semibold">{user.name}</span>
                     </span>
-
-                    {/* cart link */}
-                    <Link 
-                      to="/cart"
-                      className=" text-white px-3 py-1.5 rounded-lg hover:bg-black-700 transition"
-                      >
-                        🛒
-                      </Link>
-
                     <button onClick={handleLogout}
-                    className="bg-black text-white px-3 py-1.5 rounded-lg hover:bg-black-700 transition"
+                    className="text-sm font-medium border border-gray-900 px-4 py-1.5 rounded-full hover:bg-black hover:text-white transition-all"
                     >
                     Logout
                     </button>
-                    </div>
+
+                   
+              <Link
+                 to="/cart"
+                className="relative flex items-center hover:text-black transition-colors duration-200"
+                >
+                  <ShoppingCart size={22} />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 -right -3 bg-black text-white text-xs px-1.5 py-0.5 rounded-full">
+                      {cartCount}
+                    </span>
+                  )}
+                  </Link>
+
                  </>
                 
-
              ) : (
                 <>
-                    <button
-                    onClick={() => navigate("/login")}
-                    className="bg-green-700  text-white px-3 py-1.5 rounded-lg  hover:bg-green-900 transition"
-                    >
-                     Login
-                    </button>
 
-                    <button
-                      onClick={() => navigate("/register")}
-                    className="bg-blue-800 text-white px-3 py-1.5 rounded-lg hover:bg-blue-900 transition"
-                    >
-                    Register
-                    </button>
+                <Link
+                  to="/login"
+                  className="text-sm font-medium hover:text-black transition-all"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="text-sm font-medium border border-gray-900 px-4 py-1.5 rounded-full hover:bg-black hover:text-white transition-all"
+                >
+                 Register
+                </Link>
+
+
                     </>
              )}
+             </div>
              </div>
         </nav>
     );
 }
+
+

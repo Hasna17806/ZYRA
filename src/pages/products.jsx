@@ -39,7 +39,6 @@ export default function Products() {
         >
           <option value="all">All Categories</option>
           <option value="clothing">Clothing</option>
-          <option value="electronics">Electronics</option>
           <option value="shoes">Shoes</option>
           <option value="accessories">Accessories</option>
         </select>
@@ -57,14 +56,14 @@ export default function Products() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {filtered.length === 0 && (
-          <p className="text-center col-span-full text-gray-500">No products found</p>
+          <p className="text-center col-span-full text-gray-500 mt-10">No products found</p>
         )}
 
         {filtered.map((p) => (
           <div
             key={p.id}
-            className="border rounded-lg shadow p-4 hover:shadow-lg transition bg-white cursor-pointer"
-            onClick={() => navigate(`/products/${p.id}`)}
+            className="border rounded-lg shadow-md p-4 hover:shadow-xl bg-white cursor-pointer transition-all"
+            onClick={() => navigate(`/product/${p.id}`)}
           >
             {p.image ? (
               <img src={p.image} alt={p.title} className="w-full object-cover mb-3 rounded" />
