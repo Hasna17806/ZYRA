@@ -1,19 +1,25 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getProducts } from "../services/productService";
 
+// Updated filter logic
 const filterProducts = (state) => {
-    let filtered = [...state.items];
+  let filtered = [...state.items];
 
-      // Search filter
-    if (state.search) {
-        filtered = filtered.filter((p) => 
-        p.title.toLowerCase().includes(state.search.toLowerCase())
+  // Search filter
+  if (state.search) {
+    filtered = filtered.filter((p) =>
+      p.title.toLowerCase().includes(state.search.toLowerCase())
     );
-    }
+  }
 
-    // Category filter
+  // Category filter 
   if (state.category !== "all") {
-    filtered = filtered.filter((p) => p.category === state.category);
+    filtered = filtered.filter((p) => {
+      if (Array.isArray(p.category)) {
+        return p.category.includes(state.category);
+      }
+      return p.category === state.category;
+    });
   }
 
   // Sort
@@ -27,61 +33,58 @@ const filterProducts = (state) => {
 };
 
 export const fetchProducts = createAsyncThunk(
-    "products/fetchAll",
-    async (_, thunkAPI) => {
-        try {
-            return await getProducts();
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+  "products/fetchAll",
+  async (_, thunkAPI) => {
+    try {
+      return await getProducts();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
+  }
 );
 
 const productSlice = createSlice({
-    name: "products",
-    initialState: {
-        items: [],
-        filtered: [],
-        isLoading: false,
-        error: null,
-        search: "",
-        category: "all",
-        sort: "none",
+  name: "products",
+  initialState: {
+    items: [],
+    filtered: [],
+    isLoading: false,
+    error: null,
+    search: "",
+    category: "all",
+    sort: "none",
+  },
+  reducers: {
+    setSearch: (state, action) => {
+      state.search = action.payload;
+      state.filtered = filterProducts(state);
     },
-    reducers: {
-        setSearch: (state, action) => {
-            state.search = action.payload;
-            state.filtered = filterProducts(state);
-        },
-        setCategory: (state, action) => {
-            state.category = action.payload;
-            state.filtered = filterProducts(state);
-        },
-        setSort: (state, action) => {
-            state.sort = action.payload;
-            state.filtered = filterProducts(state);
-        },
+    setCategory: (state, action) => {
+      state.category = action.payload;
+      state.filtered = filterProducts(state);
     },
-    extraReducers: (builder) => {
-        builder
-          .addCase(fetchProducts.pending, (state) => {
-            state.isLoading = true;
-            state.error = null;
-          })
-          .addCase(fetchProducts.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.items = action.payload;
-            state.filtered = action.payload;
-          })
-          .addCase(fetchProducts.rejected, (state, action) => {
-            state.isLoading = false;
-            state.error = action.payload;
-          });
+    setSort: (state, action) => {
+      state.sort = action.payload;
+      state.filtered = filterProducts(state);
     },
-
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+        state.filtered = filterProducts(state); // Apply filters after fetch
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
-
-
 
 export const { setSearch, setCategory, setSort } = productSlice.actions;
 export default productSlice.reducer;

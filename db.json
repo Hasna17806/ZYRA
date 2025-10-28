@@ -4,181 +4,278 @@
       "id": "1",
       "title": "Basic Slim Fit T-shirt",
       "price": 3499,
-      "category": "clothing",
+      "category": "men",
       "image": "https://image.hm.com/assets/hm/bf/e3/bfe3256538355d25fd8a247e1541be3329262606.jpg?imwidth=1260"
     },
     {
       "id": "2",
-      "title": "Straight Fit Jeans",
-      "price": 6999,
-      "category": "clothing",
-      "image": "https://image.hm.com/assets/hm/39/f5/39f50424ff1a64c55510f22f1426d3a3b684c93f.jpg?imwidth=2160"
+      "title": "Bow-detail cotton T-shirt",
+      "price": 3450,
+      "category": "Kids",
+      "image": "https://image.hm.com/assets/hm/31/c0/31c0ddeb1d9484d67e56232454344661d9dc20f7.jpg?imwidth=1260"
     },
     {
       "id": "3",
       "title": "Shoulder Bag",
       "price": 3199,
-      "category": "accessories",
+      "category": "women",
       "image": "https://image.hm.com/assets/hm/6b/ab/6bab3054a448b397aef3475699dee6d0a06cc824.jpg?imwidth=1260"
     },
     {
       "id": "4",
       "title": "Limited Edition Aviator Sunglasses",
       "price": 5399,
-      "category": "accessories",
+      "category": [
+        "men",
+        "women"
+      ],
       "image": "https://image.hm.com/assets/hm/38/76/3876def38fc530c3162ee8bb2d0ab8151fa848e0.jpg?imwidth=1260"
     },
     {
       "id": "5",
-      "title": "Soft Sports Trainers shoe",
-      "price": 7999,
-      "category": "shoes",
-      "image": "https://static.zara.net/assets/public/1f8d/bbcf/7c2942f4981f/351f1e95d71d/12433629131-000-e1/12433629131-000-e1.jpg?ts=1758284453215&w=850"
+      "title": "Print-motif cotton T-shirt",
+      "price": 4599,
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/37/07/370708a43c8abcf721736a7598c707955f844056.jpg?imwidth=1260"
     },
     {
       "id": "6",
       "title": "Jacket",
       "price": 5499,
-      "category": "clothing",
+      "category": "men",
       "image": "https://image.hm.com/assets/hm/2f/ce/2fcec850c301303de8b3b503714d65741432bac6.jpg?imwidth=1260"
     },
     {
       "id": "7",
       "title": "Neoprene-Effect Hoodie",
       "price": 5999,
-      "category": "clothing",
+      "category": "men",
       "image": "https://static.zara.net/assets/public/962b/7358/8d554448b7fa/29b1d309aa81/01437360800-e1/01437360800-e1.jpg?ts=1756300876016&w=563"
     },
     {
       "id": "8",
       "title": " Denim Effect Trainer shoe",
       "price": 3999,
-      "category": "shoes",
+      "category": "men",
       "image": "https://static.zara.net/assets/public/e49c/1a78/600c4f2ba5b9/eb5965d3338a/12253629107-e1/12253629107-e1.jpg?ts=1759308144264&w=1024"
     },
     {
       "id": "9",
-      "title": "Leather Heeled Limited Edition Boots",
-      "price": 9550,
-      "category": "shoes",
-      "image": "https://static.zara.net/assets/public/8d67/5e5b/11e045ac9194/ccca219c43b5/12001620107-e1/12001620107-e1.jpg?ts=1756980828878&w=563"
+      "title": "3-piece dressy set",
+      "price": 5799,
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/21/ef/21ef2e31ee221145997185f873a08f21e02b019f.jpg?imwidth=1260"
     },
     {
       "id": "10",
       "title": "Trainers With Heel Detail Sneaker",
       "price": 3950,
-      "category": "shoes",
+      "category": "men",
       "image": "https://static.zara.net/assets/public/09f5/bab0/9f6143668274/7422508aed94/12205629117-e1/12205629117-e1.jpg?ts=1758722848663&w=563"
     },
     {
       "id": "11",
       "title": "Faux Leather Biker Jacket",
       "price": 5950,
-      "category": "clothing",
+      "category": "men",
       "image": "https://static.zara.net/assets/public/5fee/ade1/4211480c83ab/45699b4fa5c9/03046064800-e1/03046064800-e1.jpg?ts=1742298028506&w=375"
     },
     {
       "id": "12",
       "title": "Ankle Boots With Buckle Detail shoe",
       "price": 6599,
-      "category": "shoes",
+      "category": "women",
       "image": "https://static.zara.net/assets/public/fdc5/1675/287a41baa431/7d9bf1bd2a7e/12150510116-000-e1/12150510116-000-e1.jpg?ts=1759751534744&w=969"
     },
     {
       "id": "13",
-      "title": "Square Sunglasses",
+      "title": "Cotton grandad shirt",
       "price": 1499,
-      "category": "accessories",
-      "image": "https://static.zara.net/assets/public/6fd0/5efe/993843238d2b/e0703112124e/02750401800-e3/02750401800-e3.jpg?ts=1753889399511&w=375"
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/83/b8/83b85f994f6b597efe0ad0e4b110c35f60a6c1e5.jpg?imwidth=1260"
     },
     {
       "id": "14",
       "title": "Empossed Leather Jacket",
       "price": 8550,
-      "category":"clothing",
+      "category": "men",
       "image": "https://static.zara.net/assets/public/18e3/8d1f/b1de4cf7993d/97a2ac642235/00155365700-e1/00155365700-e1.jpg?ts=1759746708634&w=563"
     },
     {
       "id": "15",
       "title": "Animal Print Leather Tote Bag",
       "price": 7950,
-      "category": "accessories",
+      "category": "women",
       "image": "https://static.zara.net/assets/public/7845/d402/91764643b185/a5b09f04b520/13109520202-e1/13109520202-e1.jpg?ts=1746518159091&w=750"
     },
     {
       "id": "16",
       "title": "Limited Edition Leather Shopper Bag",
       "price": 5950,
-      "category": "accessories",
+      "category": "women",
       "image": "https://static.zara.net/assets/public/d0e7/269b/00d64545a5f6/52230be7f4bf/13337620105-e1/13337620105-e1.jpg?ts=1753694078938&w=563"
     },
     {
       "id": "17",
-      "title": "Slim Fit Shirt With Bib Front",
+      "title": "Tulle-skirt dress",
       "price": 5999,
-      "category":"clothing",
-      "image": "https://static.zara.net/assets/public/4d02/e953/28dd4e0a922f/3fdc47d2118f/06797605250-e1/06797605250-e1.jpg?ts=1760437572516&w=563"
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/62/b0/62b07a6bdc4b6b539fc07619081c2201f2f193f9.jpg?imwidth=1260"
     },
     {
       "id": "18",
       "title": "Rectangular shoulder bag",
       "price": 3299,
-      "category":"accessories",
-      "image":"https://image.hm.com/assets/hm/f5/37/f53727c389f3f4be3832ab11477f9433da954aff.jpg?imwidth=1260"
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/f5/37/f53727c389f3f4be3832ab11477f9433da954aff.jpg?imwidth=1260"
     },
     {
       "id": "19",
       "title": "Twist-detail dress",
-      "price":3999,
-      "category":"clothing",
+      "price": 3999,
+      "category": [
+        "clothing",
+        "women"
+      ],
       "image": "https://image.hm.com/assets/hm/cf/66/cf66e170fa5ae9297683da41a9b49721f3886c31.jpg?imwidth=256"
     },
     {
       "id": "20",
       "title": "Tie-belt shirt dress",
       "price": 5599,
-      "category":"clothing",
+      "category": "women",
       "image": "https://image.hm.com/assets/hm/db/91/db9179f1feaa482735ecd36cd212f06f6701a1f8.jpg?imwidth=1260"
     },
     {
       "id": "21",
-      "title": "Straight High Jeans",
-      "price": 3999,
-      "category":"clothing",
-      "image": "https://image.hm.com/assets/hm/30/c7/30c75316efd8a2463581006c943775a7e63778e3.jpg?imwidth=1260"
+      "title": " Leather Jacket With Faux Shearling",
+      "price": 3950,
+      "category": "kids",
+      "image": "https://static.zara.net/assets/public/8fbb/92a1/de884df59a6a/c997c1eeaca6/05854560800-e1/05854560800-e1.jpg?ts=1757403717329&w=1024"
     },
     {
       "id": "22",
       "title": "Loose-fit T-shirt",
       "price": 3499,
-      "category":"clothing",
+      "category": "men",
       "image": "https://image.hm.com/assets/hm/cf/bf/cfbf299b4f5507c133eafb72d89d406e0441c3c8.jpg?imwidth=1260"
     },
     {
       "id": "23",
-       "title": "Wide High Jeans",
-       "price": 4999,
-       "category":"clothing",
-       "image": "https://image.hm.com/assets/hm/9d/0c/9d0c10ebec21fe1c93d728ce1af29d862edbbb25.jpg?imwidth=1260"
+      "title": "Wide High Jeans",
+      "price": 4999,
+      "category": [
+        "men",
+        "women"
+      ],
+      "image": "https://image.hm.com/assets/hm/9d/0c/9d0c10ebec21fe1c93d728ce1af29d862edbbb25.jpg?imwidth=1260"
     },
     {
       "id": "24",
       "title": "Loose Fit Cropped flannel shirt",
-      "price":5799,
-      "category":"clothing",
+      "price": 5799,
+      "category": "men",
       "image": "https://image.hm.com/assets/hm/2d/4c/2d4c9b43bfcb3fc4ab98f0ed3e36fec04e52c5a7.jpg?imwidth=1260"
     },
     {
       "id": "25",
+      "title": "Blend Hooded Duffle Coat",
+      "price": 4950,
+      "category": "kids",
+      "image": "https://static.zara.net/assets/public/7ff8/efe6/439e44b8948f/5e5e5b08f66b/06533390710-e1/06533390710-e1.jpg?ts=1761234752952&w=1024"
+    },
+    {
+      "id": "26",
       "title": "Polarised sunglasses",
-      "price":1399,
-      "category":"accessories",
+      "price": 1399,
+      "category": [
+        "men",
+        "women"
+      ],
       "image": "https://image.hm.com/assets/hm/9d/55/9d55e3c35e47d69d442562e282ac6f6c627d98da.jpg?imwidth=1260"
+    },
+    {
+      "id": "27",
+      "title": "Straight Fit Jeans",
+      "price": 6999,
+      "category": [
+        "women",
+        "men"
+      ],
+      "image": "https://image.hm.com/assets/hm/39/f5/39f50424ff1a64c55510f22f1426d3a3b684c93f.jpg?imwidth=2160"
+    },
+    {
+      "id": "28",
+      "title": "Soft Sports Trainers shoe",
+      "price": 7999,
+      "category": "men",
+      "image": "https://static.zara.net/assets/public/1f8d/bbcf/7c2942f4981f/351f1e95d71d/12433629131-000-e1/12433629131-000-e1.jpg?ts=1758284453215&w=850"
+    },
+    {
+      "id": "29",
+      "title": "Leather Heeled Limited Edition Boots",
+      "price": 9550,
+      "category": "men",
+      "image": "https://static.zara.net/assets/public/8d67/5e5b/11e045ac9194/ccca219c43b5/12001620107-e1/12001620107-e1.jpg?ts=1756980828878&w=563"
+    },
+    {
+      "id": "30",
+      "title": "Embroidery-detail jeans",
+      "price": 2399,
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/5e/e2/5ee2ad8b211382ca2026d3bd0e030cf554e5b945.jpg?imwidth=1260"
+    },
+    {
+      "id": "31",
+      "title": "Square Sunglasses",
+      "price": 1499,
+      "category": [
+        "men",
+        "women"
+      ],
+      "image": "https://static.zara.net/assets/public/6fd0/5efe/993843238d2b/e0703112124e/02750401800-e3/02750401800-e3.jpg?ts=1753889399511&w=375"
+    },
+    {
+      "id": "32",
+      "title": "Slim Fit Shirt With Bib Front",
+      "price": 5999,
+      "category": "men",
+      "image": "https://static.zara.net/assets/public/4d02/e953/28dd4e0a922f/3fdc47d2118f/06797605250-e1/06797605250-e1.jpg?ts=1760437572516&w=563"
+    },
+    {
+      "id": "33",
+      "title": "Straight High Jeans",
+      "price": 3999,
+      "category": [
+        "men",
+        "women"
+      ],
+      "image": "https://image.hm.com/assets/hm/30/c7/30c75316efd8a2463581006c943775a7e63778e3.jpg?imwidth=1260"
+    },
+    {
+      "id": "34",
+      "title": "Doubled-Faced Faux Shearling Coat",
+      "price": 3599,
+      "category": "Kids",
+      "image": "https://static.zara.net/assets/public/a581/5923/64e04bed88e3/b084ea4c8ab1/03791555506-e1/03791555506-e1.jpg?ts=1755687446401&w=1024"
+    },
+    {
+      "id": "35",
+      "title": "Corduroy Baggy Trousers",
+      "price": 3599,
+      "category": "Kids",
+      "image": "https://static.zara.net/assets/public/30fd/8632/9de143ef8c11/6420f9c50cf2/04745255711-e1/04745255711-e1.jpg?ts=1758529068516&w=1024"
+    },
+    {
+      "id": "36",
+      "title": "Faux Leather Peplum Jacket",
+      "price": 5950,
+      "category": "women",
+      "image": "https://static.zara.net/assets/public/13fd/ac9c/8d3c42c68f2a/13733ca7a254/04749723800-e1/04749723800-e1.jpg?ts=1758209113796&w=1024"
     }
-   
   ],
   "users": [
-        {
+    {
       "id": "1",
       "email": "admin@example.com",
       "password": "123456",
@@ -224,7 +321,52 @@
       "email": "Rifha@gmail.com",
       "password": "sherin",
       "role": "user"
+    },
+    {
+      "id": "d959",
+      "name": "Wafa",
+      "email": "wafa@gmail.com",
+      "password": "w@fa",
+      "role": "user"
+    },
+    {
+      "id": "2784",
+      "name": "Fathima",
+      "email": "fathima@gmail.com",
+      "password": "f@thima",
+      "role": "user"
+    },
+    {
+      "id": "a069",
+      "name": "Hasna",
+      "email": "hasna@gmail.com",
+      "password": "hasna",
+      "role": "user"
+    },
+    {
+      "id": "10d4",
+      "name": "Suada",
+      "email": "suada@gmail.com",
+      "password": "Suad@123",
+      "role": "user"
+    },
+    {
+      "id": "d613",
+      "name": "Hasna",
+      "email": "hasna@gmail.com",
+      "password": "Hasn@123",
+      "role": "user"
+    },
+    {
+      "id": "7728",
+      "name": "Mashitha",
+      "email": "mashitha@gmail.com",
+      "password": "Mashitha@123",
+      "role": "user"
     }
-  ]
+  ],
+   
+  "orders" : []
 
+  
 }

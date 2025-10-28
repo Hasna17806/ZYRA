@@ -8,7 +8,7 @@ export const register = async (userData) => {
     return res.data;
 };
 
-// Login user (mock auth)
+// Login user
 export const login = async (email, password) => {
     const res = await axios.get(API_URL);
     const users = res.data;

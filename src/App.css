@@ -18,16 +18,22 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
+@keyframes slideIn {
   from {
-    transform: rotate(0deg);
+   opacity: 0;
+   transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
@@ -38,5 +44,5 @@
 }
 
 .read-the-docs {
-  color: #888;
-}
+  color: #888; */
+/* } */
