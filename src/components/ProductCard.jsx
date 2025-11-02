@@ -1,191 +1,160 @@
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../redux/wishlistSlice";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Heart, Eye } from "lucide-react";
 import { useState } from "react";
-import { ShoppingBag, Check, Heart } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-  const { items: cartItems } = useSelector((state) => state.cart);
-  const wishlistState = useSelector((state) => state.wishlist);
-  const wishlistItems = wishlistState?.items || [];
+  const { items: wishlistItems } = useSelector((state) => state.wishlist);
+  const [isHovered, setIsHovered] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-  const [isAdding, setIsAdding] = useState(false);
-
-  // Check if already in cart
-  const isInCart = cartItems.some((item) => item.product.id === product.id);
-  
-  // Check if in wishlist
   const isInWishlist = wishlistItems.some((item) => item.id === product.id);
 
-  const handleAddToCart = async (e) => {
-    e.stopPropagation();
-
-    if (!user) {
-      toast.error("Please login to add items to cart", {
-        icon: "🔒",
-        style: {
-          borderRadius: "10px",
-          background: "#fff",
-          color: "#333",
-          fontSize: "14px",
-        },
-      });
-      return;
-    }
-
-    if (isInCart) {
-      toast("Already in your cart 🛒", {
-        icon: "ℹ️",
-        style: {
-          borderRadius: "10px",
-          background: "#fff",
-          color: "#333",
-          fontSize: "14px",
-        },
-      });
-      return;
-    }
-
-    setIsAdding(true);
-    setTimeout(() => {
-      dispatch(addToCart({ product, quantity: 1 }));
-      setIsAdding(false);
-      toast.success(`${product.title} added to cart`, {
-        icon: "🛍️",
-        style: {
-          borderRadius: "10px",
-          background: "#fff",
-          color: "#333",
-          fontSize: "14px",
-        },
-      });
-    }, 700);
-  };
-
   const handleWishlistClick = (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    
+
     if (!user) {
-      toast.error("Please login to save items to wishlist", {
-        icon: "🔒",
-        style: {
-          borderRadius: "10px",
-          background: "#fff",
-          color: "#333",
-          fontSize: "14px",
-        },
-      });
+      toast.error("Please login to add items to wishlist!");
       return;
     }
 
     if (isInWishlist) {
       dispatch(removeFromWishlist(product.id));
-      toast.success("Removed from wishlist", {
-        icon: "💔",
-        style: {
-          borderRadius: "10px",
-          background: "#fff",
-          color: "#333",
-          fontSize: "14px",
-        },
-      });
+      toast.success("Removed from wishlist");
     } else {
-      dispatch(addToWishlist({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        image: product.image,
-        description: product.description,
-        stock: product.stock
-      }));
-      toast.success("Added to wishlist", {
-        icon: "❤️",
-        style: {
-          borderRadius: "10px",
-          background: "#fff",
-          color: "#333",
-          fontSize: "14px",
-        },
-      });
+      dispatch(addToWishlist(product));
+      toast.success("Added to wishlist");
     }
   };
 
+ const discount = product.discount || null;
+const currentPrice = product.price;
+const originalPrice = discount ? (currentPrice / (1 - discount / 100)).toFixed(0) : null;
+
   return (
-    <div
-      onClick={() => navigate(`/product/${product.id}`)}
-      className="group flex flex-col text-center cursor-pointer transition-all duration-300 hover:shadow-xl bg-white rounded-xl overflow-hidden border border-gray-100"
+    <Link
+      to={`/product/${product.id}`}
+      className="group block relative overflow-hidden rounded-xl bg-white transition-all duration-300 hover:shadow-xl"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image Section */}
-      <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-100">
+      {/* Image Container */}
+      <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+        {/* Skeleton loader */}
+        {!imageLoaded && (
+          <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200"></div>
+        )}
+        
         <img
-          src={product.image}
-          alt={product.title}
-          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+          src={product.image || "https://via.placeholder.com/300"}
+          alt={product.title || product.name}
+          className={`w-full h-full object-cover transition-all duration-700 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          } ${isHovered ? "scale-110" : "scale-100"}`}
+          onLoad={() => setImageLoaded(true)}
+          loading="lazy"
         />
 
-        {/* Wishlist Heart Button - Top Right */}
+        {/* Gradient Overlay on Hover */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
+        {/* Discount Badge */}
+        {discount && discount > 0 && (
+      <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+      {discount}% OFF
+     </div>
+       )}
+
+        {/* Wishlist Button */}
         <button
           onClick={handleWishlistClick}
-          className={`absolute top-3 right-3 p-2 rounded-full transition-all duration-300 ${
-            isInWishlist 
-              ? "bg-red-500 text-white shadow-lg" 
-              : "bg-white/80 text-gray-600 hover:bg-white hover:text-red-500 group-hover:opacity-100 opacity-0"
-          }`}
+          className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-sm transition-all duration-300 ${
+            isInWishlist
+              ? "bg-red-500 text-white scale-110"
+              : "bg-white/90 text-gray-700 hover:bg-white hover:scale-110"
+          } shadow-lg z-10`}
+          aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <Heart 
-            size={18} 
-            className={isInWishlist ? "fill-current" : ""}
+          <Heart
+            size={18}
+            fill={isInWishlist ? "currentColor" : "none"}
+            className="transition-all"
           />
         </button>
 
-        {/* Add to Cart Button */}
-        <button
-          onClick={handleAddToCart}
-          disabled={isAdding}
-          className={`absolute bottom-3 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full shadow-md text-xs tracking-widest uppercase transition-all duration-300
-          ${isInCart
-            ? "bg-green-600 text-white"
-            : "bg-black text-white group-hover:opacity-100 opacity-0"}
-          ${isAdding ? "opacity-75 cursor-wait" : ""}
-          `}
+        {/* Quick View Button */}
+        <div
+          className={`absolute bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 ${
+            isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+          }`}
         >
-          {isInCart ? (
-            <span className="flex items-center gap-1">
-              <Check size={14} /> In Cart
-            </span>
-          ) : isAdding ? (
-            <span className="flex items-center gap-1 animate-pulse">
-              <ShoppingBag size={14} /> Adding...
-            </span>
-          ) : (
-            "Add to Cart"
-          )}
-        </button>
+          <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg text-sm font-medium text-gray-900">
+            <Eye size={16} />
+            Quick View
+          </div>
+        </div>
       </div>
 
       {/* Product Info */}
-      <div className="px-4 py-5">
-        <h3 className="text-base font-medium text-gray-900 truncate">
-          {product.title}
+      <div className="p-4">
+        {/* Category */}
+        <p className="text-xs uppercase tracking-wider text-gray-500 mb-1.5 font-medium">
+          {product.category}
+        </p>
+
+        {/* Title */}
+        <h3 className="font-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-gray-600 transition-colors leading-snug">
+          {product.title || product.name}
         </h3>
-        <p className="text-sm text-gray-500 mt-1">₹{product.price}</p>
 
         {/* Rating */}
-        <div className="flex justify-center items-center gap-2 mt-2 text-xs text-yellow-500">
-          ★★★★☆ 
+        <div className="flex items-center gap-1 mb-3">
+          <div className="flex text-yellow-400 text-sm">
+            {"★".repeat(4)}
+            {"☆".repeat(1)}
+          </div>
+          <span className="text-xs text-gray-500">(128)</span>
         </div>
 
-        {product.stock && (
-          <p className="mt-2 text-xs text-green-600 font-semibold">
-            In Stock: {product.stock}
-          </p>
-        )}
-      </div>
+        {/* Price */}
+      <div className="flex items-center gap-2 flex-wrap">
+  <span className="text-lg font-bold text-gray-900">
+    ₹{currentPrice}
+  </span>
+  {discount && (
+    <>
+      <span className="text-sm line-through text-gray-400">
+        ₹{originalPrice}
+      </span>
+      <span className="text-xs text-green-600 font-semibold">
+        Save ₹{(originalPrice - currentPrice).toFixed(0)}
+      </span>
+      </>
+     )}
     </div>
+
+        {/* Stock Status */}
+        <div className="mt-3 flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span className="text-xs text-gray-600">In Stock</span>
+        </div>
+      </div>
+
+      {/* Hover Effect Border */}
+      <div
+        className={`absolute inset-0 border-2 rounded-xl pointer-events-none transition-all duration-300 ${
+          isHovered ? "border-gray-300" : "border-transparent"
+        }`}
+      />
+    </Link>
   );
 }

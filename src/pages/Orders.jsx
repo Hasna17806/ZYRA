@@ -14,9 +14,8 @@ export default function Orders() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Safe function to get product name from any structure
+  // Safe function to get product name
   const getProductName = (item) => {
-    // Try different possible structures
     if (item.product && item.product.title) return item.product.title;
     if (item.title) return item.title;
     if (item.name) return item.name;
@@ -40,21 +39,28 @@ export default function Orders() {
 
   if (!user) {
     return (
-      <div className="text-center mt-32 text-gray-500 text-lg">
-        Please log in to view your orders.
+      <div className="min-h-screen bg-gray-50 pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+          <p className="text-gray-500 text-lg">Please log in to view your orders</p>
+        </div>
       </div>
     );
   }
 
   if (userOrders.length === 0) {
     return (
-      <div className="text-center mt-32 text-gray-500 text-lg">
-        You have no past orders.
+      <div className="min-h-screen bg-gray-50 pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+          <p className="text-gray-500 text-lg mb-2">No orders yet</p>
+          <p className="text-gray-400 text-sm">Start shopping to see your orders here</p>
+        </div>
       </div>
     );
   }
 
-  // Process orders with safe data handling
+  // Process orders
   const processedOrders = userOrders.map(order => ({
     id: order.id || "Unknown Order",
     date: order.date || "Unknown Date", 
@@ -86,11 +92,11 @@ export default function Orders() {
   // Status counts
   const statusCounts = {
     all: processedOrders.length,
-    pending: processedOrders.filter(order => order.status === "pending").length,
-    processing: processedOrders.filter(order => order.status === "processing").length,
-    shipped: processedOrders.filter(order => order.status === "shipped").length,
-    delivered: processedOrders.filter(order => order.status === "delivered").length,
-    cancelled: processedOrders.filter(order => order.status === "cancelled").length,
+    pending: processedOrders.filter(o => o.status === "pending").length,
+    processing: processedOrders.filter(o => o.status === "processing").length,
+    shipped: processedOrders.filter(o => o.status === "shipped").length,
+    delivered: processedOrders.filter(o => o.status === "delivered").length,
+    cancelled: processedOrders.filter(o => o.status === "cancelled").length,
   };
 
   const getStatusIcon = (status) => {
@@ -116,7 +122,7 @@ export default function Orders() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
+    <div className="min-h-screen bg-gray-50 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -132,7 +138,7 @@ export default function Orders() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search orders by order number or product name..."
+                placeholder="Search orders..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
@@ -165,57 +171,64 @@ export default function Orders() {
 
             {/* Orders List */}
             <div className="space-y-4">
-              {filteredOrders.map((order) => (
-                <motion.div
-                  key={order.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`bg-white rounded-lg border-2 cursor-pointer transition-all ${
-                    selectedOrder?.id === order.id
-                      ? "border-black shadow-lg"
-                      : "border-gray-200 hover:border-gray-300 hover:shadow-md"
-                  }`}
-                  onClick={() => setSelectedOrder(order)}
-                >
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <h3 className="font-semibold text-gray-900">{order.id}</h3>
-                        <p className="text-sm text-gray-500">{order.date}</p>
-                      </div>
-                      <div className={`flex items-center gap-2 px-3 py-1 rounded-full border ${getStatusColor(order.status)}`}>
-                        {getStatusIcon(order.status)}
-                        <span className="text-sm font-medium capitalize">{order.status}</span>
-                      </div>
-                    </div>
-
-                    {/* Order Items Preview */}
-                    <div className="space-y-2">
-                      {order.items.slice(0, 2).map((item, index) => (
-                        <div key={index} className="flex justify-between text-sm">
-                          <span className="text-gray-600">
-                            {item.name}
-                            {item.quantity > 1 && ` (Qty: ${item.quantity})`}
-                          </span>
-                          <span className="font-medium">
-                            ₹{(item.price * item.quantity).toFixed(2)}
-                          </span>
+              {filteredOrders.length === 0 ? (
+                <div className="text-center py-12 bg-white rounded-lg border">
+                  <Package className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+                  <p className="text-gray-500">No orders found</p>
+                </div>
+              ) : (
+                filteredOrders.map((order) => (
+                  <motion.div
+                    key={order.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`bg-white rounded-lg border-2 cursor-pointer transition-all ${
+                      selectedOrder?.id === order.id
+                        ? "border-black shadow-lg"
+                        : "border-gray-200 hover:border-gray-300 hover:shadow-md"
+                    }`}
+                    onClick={() => setSelectedOrder(order)}
+                  >
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div>
+                          <h3 className="font-semibold text-gray-900">Order #{order.id}</h3>
+                          <p className="text-sm text-gray-500">{order.date}</p>
                         </div>
-                      ))}
-                      {order.items.length > 2 && (
-                        <div className="text-sm text-gray-500">
-                          +{order.items.length - 2} more items
+                        <div className={`flex items-center gap-2 px-3 py-1 rounded-full border ${getStatusColor(order.status)}`}>
+                          {getStatusIcon(order.status)}
+                          <span className="text-sm font-medium capitalize">{order.status}</span>
                         </div>
-                      )}
-                    </div>
+                      </div>
 
-                    <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
-                      <span className="text-sm text-gray-500">{order.items.length} items</span>
-                      <span className="font-semibold text-lg">₹{order.total.toFixed(2)}</span>
+                      {/* Order Items Preview */}
+                      <div className="space-y-2">
+                        {order.items.slice(0, 2).map((item, index) => (
+                          <div key={index} className="flex justify-between text-sm">
+                            <span className="text-gray-600">
+                              {item.name}
+                              {item.quantity > 1 && ` (×${item.quantity})`}
+                            </span>
+                            <span className="font-medium">
+                              ₹{(item.price * item.quantity).toFixed(2)}
+                            </span>
+                          </div>
+                        ))}
+                        {order.items.length > 2 && (
+                          <div className="text-sm text-gray-500">
+                            +{order.items.length - 2} more items
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
+                        <span className="text-sm text-gray-500">{order.items.length} items</span>
+                        <span className="font-semibold text-lg">₹{order.total.toFixed(2)}</span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))
+              )}
             </div>
           </div>
 
@@ -230,7 +243,7 @@ export default function Orders() {
                   <div className="mb-6">
                     <h3 className="font-medium text-gray-900 mb-4">Order Status</h3>
                     <div className="space-y-3">
-                      {["placed", "processing", "shipped", "delivered"].map((step, index) => {
+                      {["placed", "processing", "shipped", "delivered"].map((step) => {
                         const isCompleted = 
                           (step === "placed") ||
                           (step === "processing" && ["processing", "shipped", "delivered"].includes(selectedOrder.status)) ||
@@ -288,18 +301,18 @@ export default function Orders() {
                   <div className="mb-6">
                     <h3 className="font-medium text-gray-900 mb-2">Shipping Address</h3>
                     <p className="text-sm text-gray-600">
-                      {user.address?.street || "123 Main St."}<br />
+                      {user.address?.street || "123 Main St"}<br />
                       {user.address?.city && `${user.address.city}, `}
-                      {user.address?.state || "New York, NY 10001"}
+                      {user.address?.state || "State"} {user.address?.zipCode || "000000"}
                     </p>
                   </div>
 
                   {/* Tracking Info */}
                   {selectedOrder.status === "shipped" && (
-                    <div className="mb-6">
-                      <h3 className="font-medium text-gray-900 mb-2">Tracking Number</h3>
-                      <p className="text-sm text-gray-600 font-mono">
-                        TRK{(selectedOrder.id).slice(-8).toUpperCase()}
+                    <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                      <h3 className="font-medium text-blue-900 mb-1">Tracking Number</h3>
+                      <p className="text-sm text-blue-700 font-mono">
+                        TRK{(selectedOrder.id).toString().slice(-8).toUpperCase()}
                       </p>
                     </div>
                   )}
@@ -312,22 +325,12 @@ export default function Orders() {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Shipping</span>
-                      <span>₹0.00</span>
+                      <span className="text-green-600 font-medium">FREE</span>
                     </div>
                     <div className="flex justify-between font-semibold text-lg border-t border-gray-200 pt-4">
                       <span>Total</span>
                       <span>₹{selectedOrder.total.toFixed(2)}</span>
                     </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="mt-6 space-y-3">
-                    
-                    {selectedOrder.status === "delivered" && (
-                      <button className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium">
-                        Return Items
-                      </button>
-                    )}
                   </div>
                 </div>
               ) : (
