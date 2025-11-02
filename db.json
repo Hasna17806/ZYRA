@@ -1,24 +1,28 @@
 {
   "products": [
     {
-      "title": "Basic Slim Fit T-shirt",
-      "price": 3199,
-      "originalPrice": 3499,
-      "category": "men",
-      "stock": 10,
-      "status": "active",
-      "discount": 25,
-      "image": "https://image.hm.com/assets/hm/bf/e3/bfe3256538355d25fd8a247e1541be3329262606.jpg?imwidth=1260",
-      "id": "1",
-      "updatedAt": "2025-11-01T15:45:44.835Z"
-    },
-    {
-      "id": "2",
       "title": "Neoprene-Effect Hoodie",
-      "price": 5950,
+      "name": "Neoprene-Effect Hoodie",
+      "description": "",
+      "price": 3499,
+      "originalPrice": 5999,
+      "discount": 42,
       "category": "men",
+      "stock": 17,
+      "status": "inactive",
       "image": "https://image.hm.com/assets/hm/b9/ee/b9eeaf5073f3c8b681ecbc95746e7ad9ec833763.jpg?imwidth=1260",
-      "status": "inactive"
+      "colors": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "id": "2",
+      "updatedAt": "2025-11-02T15:40:08.962Z"
     },
     {
       "id": "3",
@@ -456,7 +460,7 @@
       },
       "profileImage": null,
       "memberSince": "2025-10-30T06:56:52.230Z",
-      "status": "active"
+      "status": "blocked"
     },
     {
       "id": "0986",
@@ -492,6 +496,13 @@
       },
       "profileImage": null,
       "memberSince": "2025-11-01T16:23:21.270Z"
+    },
+    {
+      "id": "dc4a",
+      "name": "John",
+      "email": "john@gmail.com",
+      "password": "john@123",
+      "role": "user"
     }
   ],
   "orders": [
@@ -502,7 +513,7 @@
       "customerEmail": "hasna@gmail.com",
       "customerPhone": "+91 9876543210",
       "date": "28/10/2025, 15:37:56",
-      "status": "delivered",
+      "status": "processing",
       "total": 6649,
       "totalAmount": 6649,
       "paymentMethod": "Credit Card",
