@@ -39,6 +39,7 @@ export const registerUser = createAsyncThunk(
       // Add additional fields for new users
       const completeUserData = {
         ...response,
+        role: response.role || "user",
         phone: "",
         address: {
           street: "",
@@ -50,6 +51,8 @@ export const registerUser = createAsyncThunk(
         profileImage: null,
         memberSince: new Date().toISOString()
       };
+
+       
       localStorage.setItem("user", JSON.stringify(completeUserData));
       return completeUserData;
     } catch (error) {
@@ -66,6 +69,7 @@ export const loginUser = createAsyncThunk(
       // Ensure the user data has all required fields
       const completeUserData = {
         ...response,
+        role: response.role || "user",
         phone: response.phone || "",
         address: response.address || {
           street: "",
@@ -203,7 +207,6 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Register
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -217,7 +220,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      // Login
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -231,7 +233,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      // Update Profile
       .addCase(updateProfile.pending, (state) => {
         state.isUpdating = true;
         state.error = null;
@@ -248,7 +249,6 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.success = null;
       })
-      // Change Password
       .addCase(changePassword.pending, (state) => {
         state.isUpdating = true;
         state.error = null;
@@ -264,7 +264,6 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.success = null;
       })
-      // Upload Profile Image
       .addCase(uploadProfileImage.pending, (state) => {
         state.isUpdating = true;
         state.error = null;

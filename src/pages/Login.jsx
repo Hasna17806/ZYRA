@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -14,16 +15,21 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordErrors, setPasswordErrors] = useState([]);
 
+  // Redirect if already logged in
   useEffect(() => {
-    if (user) navigate("/products");
+    if (user) {
+      if (user.role === "admin") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/products");
+      }
+    }
   }, [user, navigate]);
 
   const validatePassword = (password) => {
     const errors = [];
     if (password.length < 8)
       errors.push("Password must be at least 8 characters long");
-    if (!/[A-Z]/.test(password))
-      errors.push("Password must contain at least one uppercase letter");
     if (!/[a-z]/.test(password))
       errors.push("Password must contain at least one lowercase letter");
     if (!/[0-9]/.test(password))
@@ -33,14 +39,37 @@ export default function Login() {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validatePassword(password);
     if (errors.length > 0) {
       setPasswordErrors(errors);
       return;
     }
-    dispatch(loginUser({ email, password }));
+
+    // ✅ Call login thunk
+    const resultAction = await dispatch(loginUser({ email, password }));
+
+    if (loginUser.fulfilled.match(resultAction)) {
+      const loggedUser = resultAction.payload;
+
+      // Blocked user
+      if (loggedUser.status === "blocked") {
+        toast.error("Your account has been blocked. Please contact support.");
+        return;
+      }
+
+      // ✅ Role-based redirect
+      if (loggedUser.role === "admin") {
+        toast.success(`Welcome back, Admin ${loggedUser.name}!`);
+        navigate("/admin/dashboard");
+      } else {
+        toast.success(`Welcome back, ${loggedUser.name}!`);
+        navigate("/products");
+      }
+    } else {
+      toast.error("Invalid credentials. Please try again.");
+    }
   };
 
   return (
@@ -117,7 +146,10 @@ export default function Login() {
         {/* Link to Register */}
         <p className="text-center text-sm text-gray-500">
           Don't have an account?{" "}
-          <Link to="/register" className="text-black font-medium hover:underline">
+          <Link
+            to="/register"
+            className="text-black font-medium hover:underline"
+          >
             Register
           </Link>
         </p>

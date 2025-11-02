@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../redux/authSlice";
 import { clearCart } from "../redux/cartSlice";
-import { ShoppingBag, User, Heart, Menu, X } from "lucide-react";
+import { ShoppingBag, User, Heart, Menu, X, Package, Settings, LogOut } from "lucide-react";
 import CartDrawer from "./CartDrawer";
 import logo from "../assets/logo.png";
-import Wishlist from "../pages/Wishlist";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const { user } = useSelector((state) => state.auth);
@@ -31,23 +31,44 @@ export default function Navbar() {
   const handleLogout = () => {
     dispatch(logoutUser());
     dispatch(clearCart());
-    navigate("/login");
+
+    localStorage.removeItem("user");
+    navigate("/login" , { replace: true });
+    toast.success("Logged out successfully!")
+
+    setTimeout(() => {
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = () => {
+      window.history.go(1);
+    };
+  }, 0);
+
     setIsUserMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   const handleProfileClick = () => {
     navigate("/profile");
     setIsUserMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   const handleWishlistClick = () => {
     navigate("/wishlist");
+    setIsMobileMenuOpen(false);
   };
 
-  // Add this function for Orders
   const handleOrdersClick = () => {
     navigate("/orders");
     setIsUserMenuOpen(false);
+    setIsMobileMenuOpen(false);
+  };
+
+  //  Admin dashboard navigation
+  const handleAdminDashboard = () => {
+    navigate("/admin/dashboard");
+    setIsUserMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -68,7 +89,7 @@ export default function Navbar() {
               />
             </Link>
 
-            {/* Desktop Categories near Logo */}
+            {/* Desktop Categories  */}
             <div className="hidden lg:flex items-center gap-8 font-medium text-gray-900 uppercase tracking-wide text-sm">
               <Link
                 to="/products?category=women"
@@ -91,7 +112,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right: Icons + Hamburger Menu */}
+          {/* Right Icons + Hamburger Menu */}
           <div className="flex items-center gap-4 lg:gap-6 text-gray-700">
             {/* Icons - Desktop Only */}
             <div className="hidden lg:flex items-center gap-6">
@@ -101,10 +122,10 @@ export default function Navbar() {
                 className="relative p-1 hover:text-black transition"
                 title="Wishlist"
               >
-                <Heart 
-                  size={22} 
+                <Heart
+                  size={22}
                   className={wishlistCount > 0 ? "text-red-500" : ""}
-                  />
+                />
                 {wishlistCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                     {wishlistCount}
@@ -136,11 +157,30 @@ export default function Navbar() {
                   <User size={22} />
                 </button>
 
-                {/* Dropdown Menu - Updated with Orders */}
+                {/* Dropdown Menu */}
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
+                  <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
                     {user ? (
                       <>
+                        <div className="px-4 py-2 text-sm text-gray-600 border-b border-gray-100">
+                          Welcome, {user.name}
+                          {user.role === "admin" && (
+                            <span className="ml-2 text-xs bg-black text-white px-2 py-0.5 rounded">
+                              ADMIN
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Admin Dashboard Link */}
+                        {user.role === "admin" && (
+                          <button
+                            onClick={handleAdminDashboard}
+                            className="w-full text-left px-4 py-3 text-sm hover:bg-gray-50 transition-colors"
+                          >
+                            Admin Dashboard
+                          </button>
+                        )}
+
                         <button
                           onClick={handleProfileClick}
                           className="w-full text-left px-4 py-3 text-sm hover:bg-gray-50 transition-colors"
@@ -193,122 +233,161 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-50 bg-white/70 backdrop-blur-sm">
-            {/* Menu panel slides from right */}
-            <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl border-l border-gray-200">
-              <div className="p-6 h-full overflow-y-auto">
-                {/* Close Button */}
-                <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
-                  <img src={logo} alt="ZYRA" className="h-7 w-auto" />
+      {/* Mobile Menu Overlay  */}
+{isMobileMenuOpen && (
+  <div className="lg:hidden fixed inset-0 z-50">
+    {/* Lighter Backdrop */}
+    <div 
+      className="absolute inset-0 bg-white/70 backdrop-blur-sm"
+      onClick={() => setIsMobileMenuOpen(false)}
+    />
+    
+    {/* Menu Panel */}
+    <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl">
+      <div className="p-6 h-full overflow-y-auto">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
+          <img src={logo} alt="ZYRA" className="h-7 w-auto" />
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="p-2 hover:bg-gray-100 rounded-lg transition"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="space-y-1">
+          <Link
+            to="/products?category=women"
+            className="flex items-center gap-3 py-4 px-2 text-base font-medium hover:bg-gray-50 transition-colors border-b border-gray-100"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+           
+            WOMEN
+          </Link>
+          <Link
+            to="/products?category=men"
+            className="flex items-center gap-3 py-4 px-2 text-base font-medium hover:bg-gray-50 transition-colors border-b border-gray-100"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+          
+            MEN
+          </Link>
+          <Link
+            to="/products?category=kids"
+            className="flex items-center gap-3 py-4 px-2 text-base font-medium hover:bg-gray-50 transition-colors border-b border-gray-100"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            
+            KIDS
+          </Link>
+
+          {/* User Section */}
+          <div className="pt-6 border-t border-gray-200 mt-4">
+            {user ? (
+              <div className="space-y-1">
+                {/* User Info */}
+                <div className="px-2 py-3 text-sm text-gray-500 border-b border-gray-100">
+                  <div className="font-medium text-gray-900">{user.name}</div>
+                  <div className="text-xs">{user.email}</div>
+                  {user.role === "admin" && (
+                    <span className="inline-block mt-1 text-xs bg-black text-white px-2 py-0.5 rounded">
+                      ADMIN
+                    </span>
+                  )}
+                </div>
+
+                {/* Admin Dashboard */}
+                {user.role === "admin" && (
                   <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 hover:bg-gray-100 rounded-lg"
+                    onClick={handleAdminDashboard}
+                    className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
                   >
-                    <X size={20} />
+                   
+                    Admin Dashboard
                   </button>
-                </div>
+                )}
 
-                {/* Mobile Navigation */}
-                <div className="space-y-1">
-                  <Link
-                    to="/products?category=women"
-                    className="block py-4 px-2 text-base font-medium hover:bg-gray-50 transition-colors border-b border-gray-100"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    WOMEN
-                  </Link>
-                  <Link
-                    to="/products?category=men"
-                    className="block py-4 px-2 text-base font-medium hover:bg-gray-50 transition-colors border-b border-gray-100"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    MEN
-                  </Link>
-                  <Link
-                    to="/products?category=kids"
-                    className="block py-4 px-2 text-base font-medium hover:bg-gray-50 transition-colors border-b border-gray-100"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    KIDS
-                  </Link>
-
-                  {/* User Options - Updated with Orders */}
-                  <div className="pt-6 border-t border-gray-200 mt-4">
-                    {user ? (
-                      <div className="space-y-1">
-                        <div className="px-2 py-3 text-sm text-gray-500 border-b border-gray-100">
-                          Welcome, {user.name}
-                        </div>
-                        <button
-                          onClick={handleProfileClick}
-                          className="block w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
-                        >
-                          My Profile
-                        </button>
-                        <button
-                          onClick={handleOrdersClick}
-                          className="block w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
-                        >
-                          My Orders
-                        </button>
-                        <button
-                          onClick={handleWishlistClick}
-                          className="block w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
-                        >
-                          My Wishlist
-                        </button>
-                        <button
-                          onClick={() => {
-                            setIsCartOpen(true);
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className="block w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
-                        >
-                          My Cart ({cartCount})
-                        </button>
-                        <button
-                          onClick={handleLogout}
-                          className="block w-full text-left py-3 px-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors mt-2"
-                        >
-                          Sign Out
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="space-y-1">
-                        <button
-                          onClick={() => {
-                            navigate("/login");
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className="block w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
-                        >
-                          Sign In
-                        </button>
-                        <button
-                          onClick={() => {
-                            navigate("/register");
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className="block w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors"
-                        >
-                          Create Account
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                {/* User Menu Items */}
+                <button
+                  onClick={handleProfileClick}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                 
+                  My Profile
+                </button>
+                <button
+                  onClick={handleOrdersClick}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                
+                  My Orders
+                </button>
+                <button
+                  onClick={handleWishlistClick}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                  
+                  My Wishlist ({wishlistCount})
+                </button>
+                <button
+                  onClick={() => {
+                    setIsCartOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                
+                  My Cart ({cartCount})
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm text-red-600 hover:bg-red-50 transition-colors mt-1"
+                >
+                 
+                  Sign Out
+                </button>
               </div>
-            </div>
+            ) : (
+              <div className="space-y-1">
+                <button
+                  onClick={() => {
+                    navigate("/login");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                  <div className="w-6 h-6 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <User className="w-3 h-3 text-gray-600" />
+                  </div>
+                  Sign In
+                </button>
+                <button
+                  onClick={() => {
+                    navigate("/register");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-3 w-full text-left py-3 px-2 text-sm hover:bg-gray-50 transition-colors"
+                >
+                  <div className="w-6 h-6 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <User className="w-3 h-3 text-gray-600" />
+                  </div>
+                  Create Account
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
       </nav>
 
       {/* Cart Drawer */}
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
-      {/* Close dropdown when clicking outside */}
       {isUserMenuOpen && (
         <div
           className="fixed inset-0 z-40"

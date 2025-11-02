@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addToCart } from "../redux/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../redux/wishlistSlice";
 import { fetchProducts } from "../redux/productSlice";
@@ -17,7 +17,9 @@ export default function ProductDetails() {
   const { user } = useSelector((state) => state.auth);
   const { items: wishlistItems } = useSelector((state) => state.wishlist);
 
-  // Load products if not available
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+
   useEffect(() => {
     if (!items || items.length === 0) {
       dispatch(fetchProducts());
@@ -31,29 +33,6 @@ export default function ProductDetails() {
     if (product) document.title = `ZYRA | ${product.title}`;
   }, [product]);
 
-  const handleWishlistClick = () => {
-    if (!user) {
-      toast.error("Please login to save items to wishlist!");
-      navigate("/login");
-      return;
-    }
-
-    if (isInWishlist) {
-      dispatch(removeFromWishlist(product.id));
-      toast.success("Removed from wishlist!");
-    } else {
-      dispatch(addToWishlist({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        image: product.image,
-        description: product.description,
-        stock: product.stock
-      }));
-      toast.success("Added to wishlist!");
-    }
-  };
-
   if (isLoading || !product) {
     return (
       <p className="text-center mt-20 text-gray-500 text-lg animate-pulse">
@@ -62,111 +41,150 @@ export default function ProductDetails() {
     );
   }
 
-  const stock = product.stock ?? 10;
-
   const handleAddToCart = () => {
     if (!user) {
       toast.error("Please login before adding to cart!");
       navigate("/login");
       return;
     }
-
-    dispatch(addToCart({ product, quantity: 1 }));
+    if (!selectedSize) {
+      toast.error("Please select a size before adding to cart!");
+      return;
+    }
+    dispatch(addToCart({ product, quantity: 1, selectedSize, selectedColor }));
     toast.success(`${product.title} added to cart!`);
   };
 
+  const handleWishlistClick = () => {
+    if (!user) {
+      toast.error("Please login to save items to wishlist!");
+      navigate("/login");
+      return;
+    }
+    if (isInWishlist) {
+      dispatch(removeFromWishlist(product.id));
+      toast.success("Removed from wishlist!");
+    } else {
+      dispatch(addToWishlist(product));
+      toast.success("Added to wishlist!");
+    }
+  };
+
+  const sizes = ["XS", "S", "M", "L", "XL"];
+  const colors = product.colors || ["#000000"]; // fallback if not provided
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      className="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row gap-16 bg-white"
+      transition={{ duration: 0.6 }}
+      className="max-w-7xl mx-auto px-6 py-10 md:py-16 bg-white"
     >
-      {/* Product Images */}
-      <div className="lg:w-1/2 space-y-4">
-        <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden relative">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full h-[500px] object-contain hover:scale-105 transition-transform duration-500"
-          />
-          
-          {/* Wishlist Button */}
-         <button
-      onClick={handleWishlistClick}
-       className={`w-full sm:w-auto border px-8 py-3 rounded-md transition-all duration-300 text-sm uppercase tracking-wide ${
-         isInWishlist
-          ? "border-red-500 text-red-600 bg-red-50 hover:bg-red-100"
-        : "border-gray-300 text-gray-700 hover:bg-gray-100"
-         }`}
->
-      {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-      </button>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
+        {/* LEFT: Single Image */}
+        <div className="flex justify-center">
+          <div className="relative bg-gray-50 rounded-lg overflow-hidden max-w-md w-full flex justify-center items-center shadow-sm">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-[450px] sm:h-[550px] object-contain"
+            />
+            <button
+              onClick={handleWishlistClick}
+              className={`absolute top-4 right-4 p-2 rounded-full border transition-all duration-300 ${
+                isInWishlist
+                  ? "bg-red-100 border-red-400 text-red-600"
+                  : "bg-white border-gray-300 text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              <Heart size={20} fill={isInWishlist ? "currentColor" : "none"} />
+            </button>
           </div>
-      </div>    
+        </div>
 
-      {/* Product Info */}
-      <div className="lg:w-1/2 flex flex-col justify-between">
-        <div>
-          <h1 className="text-4xl font-semibold text-gray-900 mb-4 leading-tight">
+        {/* RIGHT: Product Info */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2 leading-tight">
             {product.title}
           </h1>
 
-          {/* Star Rating */}
-          <div className="flex items-center gap-1 mb-6 text-yellow-500 text-sm">
-            ★★★★☆ <span className="text-gray-500 ml-2">(128 reviews)</span>
-          </div>
-
-          <p className="text-gray-600 text-base mb-8 leading-relaxed">
-            {product.description}
-          </p>
-
-          {/* Price */}
-          <div className="flex items-center gap-4 mb-8">
-            <span className="text-3xl font-bold text-gray-900">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-2xl font-semibold text-gray-900">
               ₹{product.price}
             </span>
-            <span className="text-gray-400 line-through text-lg">
+            <span className="line-through text-gray-400">
               ₹{(product.price * 1.2).toFixed(0)}
             </span>
-            <span className="text-green-600 font-semibold text-sm">
-              20% OFF
-            </span>
+            <span className="text-green-600 font-medium">20% OFF</span>
           </div>
 
-          {/* Stock Info */}
-          <p className="text-sm text-gray-500 mb-6">
-            {stock > 0
-              ? `In Stock (${stock} available)`
-              : "Out of Stock"}
-          </p>
-        </div>
+          <div className="flex items-center gap-1 text-yellow-500 mb-6 text-sm">
+            ★★★★☆ <span className="text-gray-500 ml-1">(128)</span>
+          </div>
 
-        {/* Add to Cart Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <button
-            onClick={handleAddToCart}
-            className="w-full sm:w-auto bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-all duration-300 shadow-md text-sm uppercase tracking-wide"
-          >
-            Add to Cart
-          </button>
+          {/* Dynamic Colors */}
+          <div className="mb-6">
+            <h4 className="text-sm font-medium text-gray-800 mb-2 uppercase">
+              Color:
+            </h4>
+            <div className="flex gap-3">
+              {colors.map((color) => (
+                <button
+                  key={color}
+                  onClick={() => setSelectedColor(color)}
+                  className={`w-8 h-8 rounded-full border ${
+                    selectedColor === color
+                      ? "border-gray-800 ring-1 ring-gray-900"
+                      : "border-gray-300"
+                  } transition-all duration-300`}
+                  style={{ backgroundColor: color }}
+                />
+              ))}
+            </div>
+          </div>
 
-          <button
-            onClick={handleWishlistClick}
-            className={`w-full sm:w-auto border px-8 py-3 rounded-md transition-all duration-300 text-sm uppercase tracking-wide ${
-              isInWishlist
-                ? "border-red-500 text-red-600 bg-red-50 hover:bg-red-100"
-                : "border-gray-300 text-gray-700 hover:bg-gray-100"
-            }`}
-          >
-            {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-          </button>
+          {/* Sizes */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-2">
+              <h4 className="text-sm font-medium text-gray-800 uppercase">
+                Size:
+              </h4>
+              <button className="text-xs text-gray-600 underline hover:text-gray-900">
+                Size Guide
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {sizes.map((size) => (
+                <button
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
+                  className={`w-12 h-12 border text-sm uppercase ${
+                    selectedSize === size
+                      ? "border-gray-900 bg-gray-900 text-white"
+                      : "border-gray-300 hover:border-gray-800"
+                  } transition-all duration-300`}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
 
-          <button
-            onClick={() => navigate("/")}
-            className="w-full sm:w-auto border border-gray-300 text-gray-700 px-8 py-3 rounded-md hover:bg-gray-100 transition-all duration-300 text-sm uppercase tracking-wide"
-          >
-            Continue Shopping
-          </button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col gap-3">
+            <button
+              onClick={handleAddToCart}
+              className="w-full bg-black text-white py-3 rounded-md uppercase tracking-wide hover:bg-gray-900 transition-all duration-300"
+            >
+              Add to Bag
+            </button>
+            <button
+              onClick={() => navigate("/products")}
+              className="w-full border border-gray-300 text-gray-800 py-3 rounded-md uppercase tracking-wide hover:bg-gray-50 transition-all duration-300"
+            >
+              Continue Shopping
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

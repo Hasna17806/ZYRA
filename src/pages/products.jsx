@@ -74,12 +74,12 @@ export default function Products() {
       className={`min-h-screen bg-white pt-24 transition-all relative ${
         menuOpen ? "overflow-hidden" : ""
       }`}
-    >
+    >                         
       {/* Subtle light overlay when menu is open */}
       {menuOpen && (
         <div className="fixed inset-0 bg-white/50 backdrop-blur-md transition-all duration-300 pointer-events-none"></div>
       )}
-
+                          
       {/* Main Content */}
       {!menuOpen && (
         <div className="w-full px-4 sm:px-6 lg:px-12 py-8 relative z-20">
@@ -91,6 +91,7 @@ export default function Products() {
               </h1>
 
               {/* Right: Search + Sort */}
+
               <div className="flex gap-4">
                 {/* Search */}
                 <div className="relative">

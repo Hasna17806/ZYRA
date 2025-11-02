@@ -1,91 +1,99 @@
 {
   "products": [
     {
-      "id": "1",
       "title": "Basic Slim Fit T-shirt",
-      "price": 3499,
+      "price": 3199,
+      "originalPrice": 3499,
       "category": "men",
-      "image": "https://image.hm.com/assets/hm/bf/e3/bfe3256538355d25fd8a247e1541be3329262606.jpg?imwidth=1260"
+      "stock": 10,
+      "status": "active",
+      "image": "https://image.hm.com/assets/hm/bf/e3/bfe3256538355d25fd8a247e1541be3329262606.jpg?imwidth=1260",
+      "id": "1",
+      "updatedAt": "2025-11-01T15:45:44.835Z"
     },
     {
       "id": "2",
-      "title": "Bow-detail cotton T-shirt",
-      "price": 3450,
-      "category": "Kids",
-      "image": "https://image.hm.com/assets/hm/31/c0/31c0ddeb1d9484d67e56232454344661d9dc20f7.jpg?imwidth=1260"
+      "title": "Neoprene-Effect Hoodie",
+      "price": 5950,
+      "category": "men",
+      "image": "https://image.hm.com/assets/hm/b9/ee/b9eeaf5073f3c8b681ecbc95746e7ad9ec833763.jpg?imwidth=1260"
     },
     {
       "id": "3",
-      "title": "Shoulder Bag",
-      "price": 3199,
-      "category": "women",
-      "image": "https://image.hm.com/assets/hm/6b/ab/6bab3054a448b397aef3475699dee6d0a06cc824.jpg?imwidth=1260"
+      "title": "Loose Fit Zip-through hoodie",
+      "price": 5999,
+      "category": "men",
+      "image": "https://static.zara.net/assets/public/962b/7358/8d554448b7fa/29b1d309aa81/01437360800-e1/01437360800-e1.jpg?ts=1756300876016&w=563"
     },
     {
       "id": "4",
-      "title": "Limited Edition Aviator Sunglasses",
+      "title": "Text-motif sweatshirt",
       "price": 5399,
-      "category": [
-        "men",
-        "women"
-      ],
-      "image": "https://image.hm.com/assets/hm/38/76/3876def38fc530c3162ee8bb2d0ab8151fa848e0.jpg?imwidth=1260"
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/b2/99/b2998d13c0efbb4a36bd3165a875e10cad40b181.jpg?imwidth=1260",
+      "status": "active"
     },
     {
       "id": "5",
-      "title": "Print-motif cotton T-shirt",
-      "price": 4599,
-      "category": "kids",
-      "image": "https://image.hm.com/assets/hm/37/07/370708a43c8abcf721736a7598c707955f844056.jpg?imwidth=1260"
+      "title": "Tie-belt shirt dress",
+      "price": 5599,
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/db/91/db9179f1feaa482735ecd36cd212f06f6701a1f8.jpg?imwidth=1260"
     },
     {
       "id": "6",
       "title": "Jacket",
       "price": 5499,
       "category": "men",
-      "image": "https://image.hm.com/assets/hm/2f/ce/2fcec850c301303de8b3b503714d65741432bac6.jpg?imwidth=1260"
+      "image": "https://image.hm.com/assets/hm/2f/ce/2fcec850c301303de8b3b503714d65741432bac6.jpg?imwidth=1260",
+      "status": "active"
     },
     {
       "id": "7",
-      "title": "Neoprene-Effect Hoodie",
-      "price": 5999,
-      "category": "men",
-      "image": "https://static.zara.net/assets/public/962b/7358/8d554448b7fa/29b1d309aa81/01437360800-e1/01437360800-e1.jpg?ts=1756300876016&w=563"
+      "title": "Wide High Jeans",
+      "price": 3199,
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/2a/de/2adea87c7036bd42c6869b5bf11a05d2ef38baf5.jpg?imwidth=1260",
+      "status": "active"
     },
     {
       "id": "8",
-      "title": " Denim Effect Trainer shoe",
+      "title": "Puff-sleeved A-line dress",
       "price": 3999,
-      "category": "men",
-      "image": "https://static.zara.net/assets/public/e49c/1a78/600c4f2ba5b9/eb5965d3338a/12253629107-e1/12253629107-e1.jpg?ts=1759308144264&w=1024"
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/3f/3e/3f3ed9ef25cdd54848555aa4960c9ca83cbd61ae.jpg?imwidth=564",
+      "status": "active"
     },
     {
       "id": "9",
       "title": "3-piece dressy set",
       "price": 5799,
       "category": "kids",
-      "image": "https://image.hm.com/assets/hm/21/ef/21ef2e31ee221145997185f873a08f21e02b019f.jpg?imwidth=1260"
+      "image": "https://image.hm.com/assets/hm/21/ef/21ef2e31ee221145997185f873a08f21e02b019f.jpg?imwidth=1260",
+      "status": "inactive"
     },
     {
       "id": "10",
-      "title": "Trainers With Heel Detail Sneaker",
-      "price": 3950,
-      "category": "men",
-      "image": "https://static.zara.net/assets/public/09f5/bab0/9f6143668274/7422508aed94/12205629117-e1/12205629117-e1.jpg?ts=1758722848663&w=563"
+      "title": "Bow-detail organza dress",
+      "price": 2099,
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/b6/6d/b66d70197b86701c26a520db202f17a0f946d0c9.jpg?imwidth=564"
     },
     {
       "id": "11",
       "title": "Faux Leather Biker Jacket",
       "price": 5950,
       "category": "men",
-      "image": "https://static.zara.net/assets/public/5fee/ade1/4211480c83ab/45699b4fa5c9/03046064800-e1/03046064800-e1.jpg?ts=1742298028506&w=375"
+      "image": "https://static.zara.net/assets/public/5fee/ade1/4211480c83ab/45699b4fa5c9/03046064800-e1/03046064800-e1.jpg?ts=1742298028506&w=375",
+      "status": "active"
     },
     {
       "id": "12",
-      "title": "Ankle Boots With Buckle Detail shoe",
+      "title": "Flared corduroy treggings",
       "price": 6599,
-      "category": "women",
-      "image": "https://static.zara.net/assets/public/fdc5/1675/287a41baa431/7d9bf1bd2a7e/12150510116-000-e1/12150510116-000-e1.jpg?ts=1759751534744&w=969"
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/45/a6/45a6b1f56a80aaa4d8bc55d859d326d74c56708e.jpg?imwidth=1260",
+      "status": "active"
     },
     {
       "id": "13",
@@ -97,23 +105,24 @@
     {
       "id": "14",
       "title": "Empossed Leather Jacket",
-      "price": 8550,
+      "price": 5550,
       "category": "men",
       "image": "https://static.zara.net/assets/public/18e3/8d1f/b1de4cf7993d/97a2ac642235/00155365700-e1/00155365700-e1.jpg?ts=1759746708634&w=563"
     },
     {
       "id": "15",
-      "title": "Animal Print Leather Tote Bag",
-      "price": 7950,
+      "title": "Wide cotton trousers",
+      "price": 3950,
       "category": "women",
-      "image": "https://static.zara.net/assets/public/7845/d402/91764643b185/a5b09f04b520/13109520202-e1/13109520202-e1.jpg?ts=1746518159091&w=750"
+      "image": "https://image.hm.com/assets/hm/e7/90/e790921b43eaf1120a2668984ffdad8ef1700be3.jpg?imwidth=564"
     },
     {
       "id": "16",
-      "title": "Limited Edition Leather Shopper Bag",
-      "price": 5950,
-      "category": "women",
-      "image": "https://static.zara.net/assets/public/d0e7/269b/00d64545a5f6/52230be7f4bf/13337620105-e1/13337620105-e1.jpg?ts=1753694078938&w=563"
+      "title": "Bow-detail cotton T-shirt",
+      "price": 3450,
+      "category": "Kids",
+      "image": "https://image.hm.com/assets/hm/31/c0/31c0ddeb1d9484d67e56232454344661d9dc20f7.jpg?imwidth=1260",
+      "status": "inactive"
     },
     {
       "id": "17",
@@ -124,34 +133,33 @@
     },
     {
       "id": "18",
-      "title": "Rectangular shoulder bag",
+      "title": "Loose Fit Utility overshirt",
       "price": 3299,
-      "category": "women",
-      "image": "https://image.hm.com/assets/hm/f5/37/f53727c389f3f4be3832ab11477f9433da954aff.jpg?imwidth=1260"
+      "category": "men",
+      "image": "https://image.hm.com/assets/hm/22/65/22657f2578079d70d7f085eff7d7ec9c6e873cf8.jpg?imwidth=1260"
     },
     {
       "id": "19",
       "title": "Twist-detail dress",
       "price": 3999,
-      "category": [
-        "clothing",
-        "women"
-      ],
+      "category": "women",
       "image": "https://image.hm.com/assets/hm/cf/66/cf66e170fa5ae9297683da41a9b49721f3886c31.jpg?imwidth=256"
     },
     {
       "id": "20",
-      "title": "Tie-belt shirt dress",
-      "price": 5599,
-      "category": "women",
-      "image": "https://image.hm.com/assets/hm/db/91/db9179f1feaa482735ecd36cd212f06f6701a1f8.jpg?imwidth=1260"
+      "title": "Print-motif cotton T-shirt",
+      "price": 4599,
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/37/07/370708a43c8abcf721736a7598c707955f844056.jpg?imwidth=1260",
+      "status": "inactive"
     },
     {
       "id": "21",
       "title": " Leather Jacket With Faux Shearling",
       "price": 3950,
       "category": "kids",
-      "image": "https://static.zara.net/assets/public/8fbb/92a1/de884df59a6a/c997c1eeaca6/05854560800-e1/05854560800-e1.jpg?ts=1757403717329&w=1024"
+      "image": "https://static.zara.net/assets/public/8fbb/92a1/de884df59a6a/c997c1eeaca6/05854560800-e1/05854560800-e1.jpg?ts=1757403717329&w=1024",
+      "status": "active"
     },
     {
       "id": "22",
@@ -164,10 +172,7 @@
       "id": "23",
       "title": "Wide High Jeans",
       "price": 4999,
-      "category": [
-        "men",
-        "women"
-      ],
+      "category": "men",
       "image": "https://image.hm.com/assets/hm/9d/0c/9d0c10ebec21fe1c93d728ce1af29d862edbbb25.jpg?imwidth=1260"
     },
     {
@@ -186,37 +191,31 @@
     },
     {
       "id": "26",
-      "title": "Polarised sunglasses",
+      "title": "Oversized Fit Canvas overshirt",
       "price": 1399,
-      "category": [
-        "men",
-        "women"
-      ],
-      "image": "https://image.hm.com/assets/hm/9d/55/9d55e3c35e47d69d442562e282ac6f6c627d98da.jpg?imwidth=1260"
+      "category": "men",
+      "image": "https://image.hm.com/assets/hm/17/81/1781e981d98a2e96d6f3f1bceca77d2614cee7c0.jpg?imwidth=1260"
     },
     {
       "id": "27",
       "title": "Straight Fit Jeans",
-      "price": 6999,
-      "category": [
-        "women",
-        "men"
-      ],
+      "price": 4999,
+      "category": "women",
       "image": "https://image.hm.com/assets/hm/39/f5/39f50424ff1a64c55510f22f1426d3a3b684c93f.jpg?imwidth=2160"
     },
     {
       "id": "28",
-      "title": "Soft Sports Trainers shoe",
-      "price": 7999,
-      "category": "men",
-      "image": "https://static.zara.net/assets/public/1f8d/bbcf/7c2942f4981f/351f1e95d71d/12433629131-000-e1/12433629131-000-e1.jpg?ts=1758284453215&w=850"
+      "title": "Cotton T-shirt",
+      "price": 3999,
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/dc/2b/dc2b8c66cc9fcaedacfb2d55e9e946e0dda3efc4.jpg?imwidth=564"
     },
     {
       "id": "29",
-      "title": "Leather Heeled Limited Edition Boots",
-      "price": 9550,
-      "category": "men",
-      "image": "https://static.zara.net/assets/public/8d67/5e5b/11e045ac9194/ccca219c43b5/12001620107-e1/12001620107-e1.jpg?ts=1756980828878&w=563"
+      "title": "Print-motif cotton T-shirt",
+      "price": 1550,
+      "category": "kids",
+      "image": "https://image.hm.com/assets/hm/51/8e/518eb44518097f26fcc0925767c08b5a5624d127.jpg?imwidth=1260"
     },
     {
       "id": "30",
@@ -227,18 +226,15 @@
     },
     {
       "id": "31",
-      "title": "Square Sunglasses",
-      "price": 1499,
-      "category": [
-        "men",
-        "women"
-      ],
-      "image": "https://static.zara.net/assets/public/6fd0/5efe/993843238d2b/e0703112124e/02750401800-e3/02750401800-e3.jpg?ts=1753889399511&w=375"
+      "title": "Aviator jacket",
+      "price": 5999,
+      "category": "men",
+      "image": "https://image.hm.com/assets/hm/27/4a/274a82b9a065ea1de5e1444acf6d979e3d38a388.jpg?imwidth=564"
     },
     {
       "id": "32",
       "title": "Slim Fit Shirt With Bib Front",
-      "price": 5999,
+      "price": 3499,
       "category": "men",
       "image": "https://static.zara.net/assets/public/4d02/e953/28dd4e0a922f/3fdc47d2118f/06797605250-e1/06797605250-e1.jpg?ts=1760437572516&w=563"
     },
@@ -246,10 +242,7 @@
       "id": "33",
       "title": "Straight High Jeans",
       "price": 3999,
-      "category": [
-        "men",
-        "women"
-      ],
+      "category": "women",
       "image": "https://image.hm.com/assets/hm/30/c7/30c75316efd8a2463581006c943775a7e63778e3.jpg?imwidth=1260"
     },
     {
@@ -272,101 +265,664 @@
       "price": 5950,
       "category": "women",
       "image": "https://static.zara.net/assets/public/13fd/ac9c/8d3c42c68f2a/13733ca7a254/04749723800-e1/04749723800-e1.jpg?ts=1758209113796&w=1024"
+    },
+    {
+      "id": "37",
+      "title": "Loose Fit Fuzzy jumper",
+      "price": 7999,
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/32/3a/323a8819590161755f1338227ae2a44359bb4469.jpg?imwidth=564"
+    },
+    {
+      "id": "38",
+      "title": "Contrast Knit Faux Fur Cardigan",
+      "price": 4350,
+      "category": "women",
+      "image": "https://static.zara.net/assets/public/63ee/7b46/8dbe480a8a6b/59ef1dec97f1/05755120700-e1/05755120700-e1.jpg?ts=1759421225150&w=1024"
+    },
+    {
+      "id": "39",
+      "title": "Water-Repellent Quilted Coat With Ties",
+      "price": 3250,
+      "category": "kids",
+      "image": "https://static.zara.net/assets/public/a05a/e8b1/e28b42baafb4/526808f1080e/00874576737-e1/00874576737-e1.jpg?ts=1758812000376&w=1024"
+    },
+    {
+      "id": "40",
+      "title": "RIB T-shirt With Peter Pan Collar",
+      "price": 2499,
+      "category": "kids",
+      "image": "https://static.zara.net/assets/public/917f/1f08/14ee4204b97f/f09039599613/04424330712-e1/04424330712-e1.jpg?ts=1758187386193&w=1024"
+    },
+    {
+      "id": "41",
+      "title": "Soft-Touch Striped T-shirt",
+      "price": 1250,
+      "category": "kids",
+      "image": "https://static.zara.net/assets/public/d447/ab48/2c444c359e69/9d79a6272c2c/04012574716-e1/04012574716-e1.jpg?ts=1758187398739&w=1024"
+    },
+    {
+      "id": "42",
+      "title": "Rugby shirt",
+      "price": 2999,
+      "category": "women",
+      "image": "https://image.hm.com/assets/hm/1e/aa/1eaa70e3988a4336f9c0d762023ed0bda5b8bdf3.jpg?imwidth=1260"
+    },
+    {
+      "id": "b975",
+      "name": "Oversized jumper",
+      "description": "",
+      "price": 2299,
+      "originalPrice": 2999,
+      "category": "women",
+      "stock": 18,
+      "status": "active",
+      "image": "https://image.hm.com/assets/hm/84/ec/84ec41fa7229ba989101b38d2eae69584e0a9f47.jpg?imwidth=1260",
+      "createdAt": "2025-10-30T15:21:47.426Z"
+    },
+    {
+      "id": "edaf",
+      "name": "Crease-front trousers",
+      "description": "",
+      "price": 2399,
+      "originalPrice": 3099,
+      "category": "women",
+      "stock": 3,
+      "status": "active",
+      "image": "https://image.hm.com/assets/hm/34/18/3418b29ea1da60a38831c301fac0bbfa23ff507d.jpg?imwidth=1260",
+      "createdAt": "2025-10-30T15:44:08.495Z"
     }
   ],
   "users": [
     {
       "id": "1",
-      "email": "admin@example.com",
-      "password": "123456",
-      "role": "admin"
-    },
-    {
-      "id": "2",
-      "email": "user@example.com",
-      "password": "1234567",
-      "role": "user"
+      "name": "Zyra's Admin",
+      "email": "zyraAdmin@gmail.com",
+      "password": "zyra@123",
+      "role": "admin",
+      "status": "active",
+      "phone": "9763527823",
+      "address": {
+        "street": "Peringome",
+        "city": "Payyannur",
+        "state": "Kerala",
+        "zipCode": "",
+        "country": "India"
+      },
+      "profileImage": null,
+      "memberSince": "2025-10-30T09:26:52.624Z"
     },
     {
       "id": "08f8",
       "name": "Sana",
       "email": "sana123@gmail.com",
-      "password": "sana123",
-      "role": "user"
+      "password": "sana@123",
+      "role": "user",
+      "status": "active"
     },
     {
       "id": "f9a5",
       "name": "Sulthana",
       "email": "sulthana@gmail.com",
-      "password": "sult@na",
-      "role": "user"
-    },
-    {
-      "id": "89f1",
-      "name": "Hasna",
-      "email": "hasna@gmail.com",
-      "password": "h@sna",
-      "role": "user"
-    },
-    {
-      "id": "14e1",
-      "name": "Udaifa",
-      "email": "udaifa@gmail.com",
-      "password": "udaifa",
-      "role": "user"
+      "password": "sult@na123",
+      "role": "user",
+      "status": "active"
     },
     {
       "id": "a0b8",
       "name": "Rifha ",
       "email": "Rifha@gmail.com",
-      "password": "sherin",
-      "role": "user"
+      "password": "sherin@123",
+      "role": "user",
+      "status": "active"
     },
     {
       "id": "d959",
       "name": "Wafa",
       "email": "wafa@gmail.com",
-      "password": "w@fa",
-      "role": "user"
+      "password": "w@fa123",
+      "role": "user",
+      "status": "inactive"
     },
     {
       "id": "2784",
       "name": "Fathima",
       "email": "fathima@gmail.com",
-      "password": "f@thima",
-      "role": "user"
-    },
-    {
-      "id": "a069",
-      "name": "Hasna",
-      "email": "hasna@gmail.com",
-      "password": "hasna",
-      "role": "user"
+      "password": "f@thima123",
+      "role": "user",
+      "status": "inactive"
     },
     {
       "id": "10d4",
       "name": "Suada",
       "email": "suada@gmail.com",
-      "password": "Suad@123",
-      "role": "user"
+      "password": "Suada@123",
+      "role": "user",
+      "status": "blocked"
     },
     {
       "id": "d613",
       "name": "Hasna",
       "email": "hasna@gmail.com",
-      "password": "Hasn@123",
-      "role": "user"
+      "password": "hasna@123",
+      "role": "user",
+      "status": "active"
     },
     {
       "id": "7728",
       "name": "Mashitha",
       "email": "mashitha@gmail.com",
       "password": "Mashitha@123",
+      "role": "user",
+      "status": "blocked"
+    },
+    {
+      "id": "a7db",
+      "name": "Udaifa",
+      "email": "udaifa@gmail.com",
+      "password": "Udaifa@123",
       "role": "user"
+    },
+    {
+      "id": "90c9",
+      "name": "Aleema",
+      "email": "aleema@gmail.com",
+      "password": "aleema@123",
+      "role": "user",
+      "phone": "7863096723",
+      "address": {
+        "street": "Payyannur",
+        "city": "Kannur",
+        "state": "Kerala",
+        "zipCode": "1234",
+        "country": "India"
+      },
+      "profileImage": null,
+      "memberSince": "2025-10-30T06:56:52.230Z",
+      "status": "active"
+    },
+    {
+      "id": "0986",
+      "name": "Muneesa",
+      "email": "munesa@gmail.com",
+      "password": "muneesa@123",
+      "role": "user",
+      "status": "active",
+      "phone": "9876356790",
+      "address": {
+        "street": "Payyannur",
+        "city": "Aravanchal",
+        "state": "Kerala",
+        "zipCode": "",
+        "country": "India"
+      },
+      "profileImage": null,
+      "memberSince": "2025-10-31T09:55:41.325Z"
+    },
+    {
+      "id": "520e",
+      "name": "Mufeeda",
+      "email": "mufeeda@gmail.com",
+      "password": "mufeeda@123",
+      "role": "user",
+      "phone": "9656245390",
+      "address": {
+        "street": "Thattummal (PO), Padichal",
+        "city": "Payyannur",
+        "state": "Kerala",
+        "zipCode": "",
+        "country": "India"
+      },
+      "profileImage": null,
+      "memberSince": "2025-11-01T16:23:21.270Z"
     }
   ],
-   
-  "orders" : []
-
-  
+  "orders": [
+    {
+      "id": "1761646076959",
+      "userId": "d613",
+      "customerName": "Hasna",
+      "customerEmail": "hasna@gmail.com",
+      "customerPhone": "+91 9876543210",
+      "date": "28/10/2025, 15:37:56",
+      "status": "delivered",
+      "total": 6649,
+      "totalAmount": 6649,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "shippingCost": 50,
+      "tax": 300,
+      "shippingAddress": {
+        "street": "123 Main Street",
+        "city": "Kannur",
+        "state": "Kerala",
+        "zipCode": "670001",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "2",
+          "title": "Bow-detail cotton T-shirt",
+          "price": 3450,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/31/c0/31c0ddeb1d9484d67e56232454344661d9dc20f7.jpg?imwidth=1260",
+          "sku": "KID-TS-001"
+        },
+        {
+          "id": "3",
+          "title": "Shoulder Bag",
+          "price": 3199,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/6b/ab/6bab3054a448b397aef3475699dee6d0a06cc824.jpg?imwidth=1260",
+          "sku": "ACC-BAG-001"
+        }
+      ],
+      "createdAt": "2025-10-28T15:37:56.959Z"
+    },
+    {
+      "id": "1761654045725",
+      "userId": "d613",
+      "date": "28/10/2025, 17:50:45",
+      "status": "cancelled",
+      "total": 3599,
+      "items": [
+        {
+          "id": "35",
+          "title": "Corduroy Baggy Trousers",
+          "price": 3599,
+          "quantity": 1,
+          "image": "https://static.zara.net/assets/public/30fd/8632/9de143ef8c11/6420f9c50cf2/04745255711-e1/04745255711-e1.jpg?ts=1758529068516&w=1024"
+        }
+      ],
+      "customerEmail": "userd613@example.com",
+      "customerPhone": "+91 XXXXX XXXXX",
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "shippingCost": 0,
+      "tax": 0,
+      "shippingAddress": {
+        "street": "Address not provided",
+        "city": "City not specified",
+        "state": "State not specified",
+        "zipCode": "XXXXXX",
+        "country": "India"
+      }
+    },
+    {
+      "id": "1761754551967",
+      "userId": "f9a5",
+      "customerName": "Sulthana",
+      "customerEmail": "sulthana@gmail.com",
+      "customerPhone": "+91 9876543211",
+      "date": "29/10/2025, 21:45:51",
+      "status": "processing",
+      "total": 22347,
+      "totalAmount": 22347,
+      "paymentMethod": "Debit Card",
+      "paymentStatus": "Paid",
+      "shippingCost": 100,
+      "tax": 1200,
+      "shippingAddress": {
+        "street": "456 Park Avenue",
+        "city": "Kochi",
+        "state": "Kerala",
+        "zipCode": "682001",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "15",
+          "title": "Wide cotton trousers",
+          "price": 3950,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/e7/90/e790921b43eaf1120a2668984ffdad8ef1700be3.jpg?imwidth=564",
+          "sku": "WMN-TROUSERS-001"
+        },
+        {
+          "id": "4",
+          "title": "Text-motif sweatshirt",
+          "price": 5399,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/b2/99/b2998d13c0efbb4a36bd3165a875e10cad40b181.jpg?imwidth=1260",
+          "sku": "WMN-SWEATSHIRT-001"
+        },
+        {
+          "id": "27",
+          "title": "Straight Fit Jeans",
+          "price": 4999,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/39/f5/39f50424ff1a64c55510f22f1426d3a3b684c93f.jpg?imwidth=2160",
+          "sku": "WMN-JEANS-001"
+        },
+        {
+          "id": "37",
+          "title": "Loose Fit Fuzzy jumper",
+          "price": 7999,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/32/3a/323a8819590161755f1338227ae2a44359bb4469.jpg?imwidth=564",
+          "sku": "WMN-JUMPER-001"
+        }
+      ],
+      "createdAt": "2025-10-29T21:45:51.967Z"
+    },
+    {
+      "id": "1761796333829",
+      "userId": "d613",
+      "customerName": "Hasna",
+      "customerEmail": "hasna@gmail.com",
+      "customerPhone": "+91 9876543210",
+      "date": "30/10/2025, 09:22:13",
+      "status": "processing",
+      "total": 7198,
+      "totalAmount": 7198,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Pending",
+      "shippingCost": 60,
+      "tax": 350,
+      "shippingAddress": {
+        "street": "123 Main Street",
+        "city": "Kannur",
+        "state": "Kerala",
+        "zipCode": "670001",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "3",
+          "title": "Wide High Jeans",
+          "price": 3199,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/2a/de/2adea87c7036bd42c6869b5bf11a05d2ef38baf5.jpg?imwidth=1260",
+          "sku": "WMN-JEANS-002"
+        },
+        {
+          "id": "8",
+          "title": "Puff-sleeved A-line dress",
+          "price": 3999,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/3f/3e/3f3ed9ef25cdd54848555aa4960c9ca83cbd61ae.jpg?imwidth=564",
+          "sku": "KID-DRESS-001"
+        }
+      ],
+      "createdAt": "2025-10-30T09:22:13.829Z"
+    },
+    {
+      "id": "1761816179554",
+      "userId": "90c9",
+      "customerName": "Aleema",
+      "customerEmail": "aleema@gmail.com",
+      "customerPhone": "7863096723",
+      "date": "30/10/2025, 14:52:59",
+      "status": "shipped",
+      "total": 8598,
+      "totalAmount": 8598,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Pending",
+      "shippingCost": 70,
+      "tax": 420,
+      "shippingAddress": {
+        "street": "Payyannur",
+        "city": "Kannur",
+        "state": "Kerala",
+        "zipCode": "1234",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "3",
+          "title": "Wide High Jeans",
+          "price": 3199,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/2a/de/2adea87c7036bd42c6869b5bf11a05d2ef38baf5.jpg?imwidth=1260",
+          "sku": "WMN-JEANS-002"
+        },
+        {
+          "id": "4",
+          "title": "Text-motif sweatshirt",
+          "price": 5399,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/b2/99/b2998d13c0efbb4a36bd3165a875e10cad40b181.jpg?imwidth=1260",
+          "sku": "WMN-SWEATSHIRT-001"
+        }
+      ],
+      "createdAt": "2025-10-30T14:52:59.554Z"
+    },
+    {
+      "id": "1761816354631",
+      "userId": "90c9",
+      "customerName": "Aleema",
+      "customerEmail": "aleema@gmail.com",
+      "customerPhone": "7863096723",
+      "date": "30/10/2025, 14:55:54",
+      "status": "cancelled",
+      "total": 8849,
+      "totalAmount": 8849,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Pending",
+      "shippingCost": 75,
+      "tax": 450,
+      "shippingAddress": {
+        "street": "Payyannur",
+        "city": "Kannur",
+        "state": "Kerala",
+        "zipCode": "1234",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "2",
+          "title": "Bow-detail cotton T-shirt",
+          "price": 3450,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/31/c0/31c0ddeb1d9484d67e56232454344661d9dc20f7.jpg?imwidth=1260",
+          "sku": "KID-TS-001"
+        },
+        {
+          "id": "4",
+          "title": "Text-motif sweatshirt",
+          "price": 5399,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/b2/99/b2998d13c0efbb4a36bd3165a875e10cad40b181.jpg?imwidth=1260",
+          "sku": "WMN-SWEATSHIRT-001"
+        }
+      ],
+      "createdAt": "2025-10-30T14:55:54.631Z"
+    },
+    {
+      "id": "1761880859823",
+      "userId": "1",
+      "date": "31/10/2025, 08:50:59",
+      "status": "pending",
+      "total": 5399,
+      "items": [
+        {
+          "id": "4",
+          "title": "Text-motif sweatshirt",
+          "price": 5399,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/b2/99/b2998d13c0efbb4a36bd3165a875e10cad40b181.jpg?imwidth=1260"
+        }
+      ]
+    },
+    {
+      "id": "1761882638974",
+      "userId": "1",
+      "date": "31/10/2025, 09:20:38",
+      "status": "processing",
+      "total": 5499,
+      "items": [
+        {
+          "id": "6",
+          "title": "Jacket",
+          "price": 5499,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/2f/ce/2fcec850c301303de8b3b503714d65741432bac6.jpg?imwidth=1260"
+        }
+      ],
+      "customerEmail": "user1@example.com",
+      "customerPhone": "+91 XXXXX XXXXX",
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "shippingCost": 0,
+      "tax": 0,
+      "shippingAddress": {
+        "street": "Address not provided",
+        "city": "City not specified",
+        "state": "State not specified",
+        "zipCode": "XXXXXX",
+        "country": "India"
+      }
+    },
+    {
+      "id": "1761904332438",
+      "userId": "0986",
+      "date": "31/10/2025, 15:22:12",
+      "status": "shipped",
+      "total": 18598,
+      "items": [
+        {
+          "id": "3",
+          "title": "Wide High Jeans",
+          "price": 3199,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/2a/de/2adea87c7036bd42c6869b5bf11a05d2ef38baf5.jpg?imwidth=1260"
+        },
+        {
+          "id": "6",
+          "title": "Jacket",
+          "price": 5499,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/2f/ce/2fcec850c301303de8b3b503714d65741432bac6.jpg?imwidth=1260"
+        },
+        {
+          "id": "11",
+          "title": "Faux Leather Biker Jacket",
+          "price": 5950,
+          "quantity": 1,
+          "image": "https://static.zara.net/assets/public/5fee/ade1/4211480c83ab/45699b4fa5c9/03046064800-e1/03046064800-e1.jpg?ts=1742298028506&w=375"
+        },
+        {
+          "id": "15",
+          "title": "Wide cotton trousers",
+          "price": 3950,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/e7/90/e790921b43eaf1120a2668984ffdad8ef1700be3.jpg?imwidth=564"
+        }
+      ],
+      "customerEmail": "user0986@example.com",
+      "customerPhone": "+91 XXXXX XXXXX",
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "shippingCost": 0,
+      "tax": 0,
+      "shippingAddress": {
+        "street": "Address not provided",
+        "city": "City not specified",
+        "state": "State not specified",
+        "zipCode": "XXXXXX",
+        "country": "India"
+      }
+    },
+    {
+      "id": "1761911554744",
+      "userId": "0986",
+      "date": "31/10/2025, 17:22:34",
+      "status": "shipped",
+      "total": 17847,
+      "items": [
+        {
+          "id": "14",
+          "title": "Empossed Leather Jacket",
+          "price": 5550,
+          "quantity": 1,
+          "image": "https://static.zara.net/assets/public/18e3/8d1f/b1de4cf7993d/97a2ac642235/00155365700-e1/00155365700-e1.jpg?ts=1759746708634&w=563"
+        },
+        {
+          "id": "18",
+          "title": "Loose Fit Utility overshirt",
+          "price": 3299,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/22/65/22657f2578079d70d7f085eff7d7ec9c6e873cf8.jpg?imwidth=1260"
+        },
+        {
+          "id": "23",
+          "title": "Wide High Jeans",
+          "price": 4999,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/9d/0c/9d0c10ebec21fe1c93d728ce1af29d862edbbb25.jpg?imwidth=1260"
+        },
+        {
+          "id": "28",
+          "title": "Cotton T-shirt",
+          "price": 3999,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/dc/2b/dc2b8c66cc9fcaedacfb2d55e9e946e0dda3efc4.jpg?imwidth=564"
+        }
+      ],
+      "customerEmail": "user0986@example.com",
+      "customerPhone": "+91 XXXXX XXXXX",
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "shippingCost": 0,
+      "tax": 0,
+      "shippingAddress": {
+        "street": "Address not provided",
+        "city": "City not specified",
+        "state": "State not specified",
+        "zipCode": "XXXXXX",
+        "country": "India"
+      }
+    },
+    {
+      "id": 1762014278315,
+      "userId": "520e",
+      "date": "01/11/2025, 21:54:38",
+      "status": "pending",
+      "total": 30296,
+      "items": [
+        {
+          "id": "2",
+          "title": "Neoprene-Effect Hoodie",
+          "price": 5950,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/b9/ee/b9eeaf5073f3c8b681ecbc95746e7ad9ec833763.jpg?imwidth=1260"
+        },
+        {
+          "id": "6",
+          "title": "Jacket",
+          "price": 5499,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/2f/ce/2fcec850c301303de8b3b503714d65741432bac6.jpg?imwidth=1260"
+        },
+        {
+          "id": "5",
+          "title": "Tie-belt shirt dress",
+          "price": 5599,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/db/91/db9179f1feaa482735ecd36cd212f06f6701a1f8.jpg?imwidth=1260"
+        },
+        {
+          "id": "8",
+          "title": "Puff-sleeved A-line dress",
+          "price": 3999,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/3f/3e/3f3ed9ef25cdd54848555aa4960c9ca83cbd61ae.jpg?imwidth=564"
+        },
+        {
+          "id": "9",
+          "title": "3-piece dressy set",
+          "price": 5799,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/21/ef/21ef2e31ee221145997185f873a08f21e02b019f.jpg?imwidth=1260"
+        },
+        {
+          "id": "16",
+          "title": "Bow-detail cotton T-shirt",
+          "price": 3450,
+          "quantity": 1,
+          "image": "https://image.hm.com/assets/hm/31/c0/31c0ddeb1d9484d67e56232454344661d9dc20f7.jpg?imwidth=1260"
+        }
+      ]
+    }
+  ]
 }
