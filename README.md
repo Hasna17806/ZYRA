@@ -1,16 +1,35 @@
-# React + Vite
+# 👗 Zyra – React E-commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zyra is a responsive e-commerce dress shop built using React.js. This was one of my first frontend projects, created to strengthen my understanding of React components, state management, and responsive UI development.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Product Listing
+* Product Details
+* Responsive Layout
+* Category Filtering
+* Modern UI
+* Component-Based Architecture
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React.js
+* JavaScript
+* HTML5
+* CSS3
+* Tailwind CSS
 
-## Expanding the ESLint configuration
+## 📸 Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="1910" height="912" alt="Screenshot 2026-06-27 201955" src="https://github.com/user-attachments/assets/a7803d86-c69f-4c85-8c8a-1fd00b191c21" />
+
+
+## 🎯 Future Improvements
+
+* Backend Integration
+* User Authentication
+* Payment Integration
+
+## 👩‍💻 Author
+
+**Hasna Hamza**
