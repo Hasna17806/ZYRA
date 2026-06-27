@@ -21,7 +21,7 @@ Zyra is a responsive e-commerce dress shop built using React.js. This was one of
 
 ## 📸 Screenshots
 
-<img width="1910" height="912" alt="Screenshot 2026-06-27 201955" src="https://github.com/user-attachments/assets/a7803d86-c69f-4c85-8c8a-1fd00b191c21" />
+<img width="1918" height="912" alt="image" src="https://github.com/user-attachments/assets/6e26db95-bb90-4558-8484-83b8d6680408" />
 
 
 ## 🎯 Future Improvements
